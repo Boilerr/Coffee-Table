@@ -1,6 +1,7 @@
 <style>
 </style>
 
+
 <mat-toolbar color="primary" class="navbar" role="banner">
   <span>{{title}}</span>
   <span class="example-spacer"></span>
@@ -13,35 +14,37 @@
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav mode="side" opened class="example-sidenav">
-    <p><a href="/home">
+    <p><a routerLink="/home">
       <img alt="home" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/log">
+    <p><a routerLink="/log">
       <img alt="log" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/inbox">
+    <p><a routerLink="/inbox">
       <img alt="inbox" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/nextaction">
+    <p><a routerLink="/nextaction">
       <img alt="nextaction" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/calendar">
+    <p><a routerLink="/calendar">
       <img alt="calendar" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/worktime">
+    <p><a routerLink="/worktime">
       <img alt="worktime" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/recovery">
+    <p><a routerLink="/recovery">
       <img alt="recovery" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/projects">
+    <p><a routerLink="/projects">
       <img alt="projects" src="assets/2.png" width="50" height="50">
     </a></p>
-    <p><a href="/wiki">
+    <p><a routerLink="/wiki">
       <img alt="wiki" src="assets/2.png" width="50" height="50">
     </a></p>
 
 
+
   </mat-sidenav>
 
+  <router-outlet></router-outlet>
 </mat-sidenav-container>

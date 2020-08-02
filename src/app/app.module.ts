@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +19,7 @@ import { WorktimeComponent } from './worktime/worktime.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { WikiComponent } from './wiki/wiki.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { WikiComponent } from './wiki/wiki.component';
     WorktimeComponent,
     RecoveryComponent,
     ProjectsComponent,
-    WikiComponent
+    WikiComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { WikiComponent } from './wiki/wiki.component';
     MatButtonModule,
     MatSidenavModule,
     MatCheckboxModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
