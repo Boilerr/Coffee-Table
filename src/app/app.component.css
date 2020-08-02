@@ -1,0 +1,32 @@
+.navbar{
+  justify-content: space-between;
+}
+
+span{
+  padding-right: 1rem;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  background-color: #232222;
+}
+
+mat-sidenav, mat-sidenav-content {
+  padding: 16px;
+
+}
+
+mat-sidenav {
+  background-color: #2c2b2b;
+  width: 110px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
