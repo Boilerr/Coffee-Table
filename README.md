@@ -1,6 +1,9 @@
 # CoffeeTable
 
-[![](https://img.shields.io/github/release/Boilerr/CoffeeTable.svg)](https://github.com/Boilerr/CoffeeTable/releases)[![](https://img.shields.io/github/issues/Boilerr/CoffeeTable.svg)](https://github.com/Boilerr/CoffeeTable/issues) [![](https://img.shields.io/github/forks/Boilerr/CoffeeTable.svg)](https://github.com/Boilerr/CoffeeTable/network) [![](https://img.shields.io/github/stars/Boilerr/CoffeeTable.svg)](https://github.com/Boilerr/CoffeeTable/stargazers) 
+[![](https://img.shields.io/github/release/Boilerr/Coffee-Table.svg)](https://github.com/Boilerr/Coffee-Table/releases)
+[![](https://img.shields.io/github/issues/Boilerr/Coffee-Table.svg)](https://github.com/Boilerr/Coffee-Table/issues) 
+[![](https://img.shields.io/github/forks/Boilerr/Coffee-Table.svg)](https://github.com/Boilerr/Coffee-Table/network) 
+[![](https://img.shields.io/github/stars/Boilerr/Coffee-Table.svg)](https://github.com/Boilerr/Coffee-Table/stargazers) 
 
 
 ## Restoring Development setup
