@@ -5,18 +5,18 @@ import { LogComponent } from './log/log.component';
 import { InboxComponent } from './inbox/inbox.component';
 import {CalendarComponent} from './calendar/calendar.component';
 import {NextactionComponent} from './nextaction/nextaction.component';
-import {ProjectsComponent} from './projects/projects.component';
 import {RecoveryComponent} from './recovery/recovery.component';
 import {WikiComponent} from './wiki/wiki.component';
 import {WorktimeComponent} from './worktime/worktime.component';
 import {HomeComponent} from './home/home.component';
+import {TagsComponent} from './tags/tags.component';
 
 const routes: Routes = [
   { path: 'log', component: LogComponent },
   { path: 'inbox', component: InboxComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'nextaction', component: NextactionComponent },
-  { path: 'projects', component: ProjectsComponent },
+  { path: 'tags', component: TagsComponent },
   { path: 'recovery', component: RecoveryComponent },
   { path: 'wiki', component: WikiComponent },
   { path: 'worktime', component: WorktimeComponent },

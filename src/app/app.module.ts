@@ -17,9 +17,9 @@ import { NextactionComponent } from './nextaction/nextaction.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { WorktimeComponent } from './worktime/worktime.component';
 import { RecoveryComponent } from './recovery/recovery.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { WikiComponent } from './wiki/wiki.component';
 import { HomeComponent } from './home/home.component';
+import { TagsComponent } from './tags/tags.component';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { HomeComponent } from './home/home.component';
     CalendarComponent,
     WorktimeComponent,
     RecoveryComponent,
-    ProjectsComponent,
+    TagsComponent,
     WikiComponent,
     HomeComponent
   ],
