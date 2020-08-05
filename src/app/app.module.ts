@@ -21,6 +21,11 @@ import { WikiComponent } from './wiki/wiki.component';
 import { HomeComponent } from './home/home.component';
 import { TagsComponent } from './tags/tags.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +38,10 @@ import { TagsComponent } from './tags/tags.component';
     RecoveryComponent,
     TagsComponent,
     WikiComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     MatToolbarModule,
     BrowserAnimationsModule,
@@ -44,7 +50,13 @@ import { TagsComponent } from './tags/tags.component';
     MatSidenavModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
