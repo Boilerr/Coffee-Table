@@ -10,7 +10,7 @@
 </div>
 <ul class="inbox">
   <li *ngFor="let msg of inbox">
-    <a>
+    <a routerLink="/inbox/{{msg.id}}">
       <span class="badge">{{msg.id}}</span> {{msg.message}}
     </a>
     <button class="delete" title="delete message"

@@ -10,6 +10,7 @@ import {WikiComponent} from './wiki/wiki.component';
 import {WorktimeComponent} from './worktime/worktime.component';
 import {HomeComponent} from './home/home.component';
 import {TagsComponent} from './tags/tags.component';
+import {InboxDetailComponent} from './inbox-detail/inbox-detail.component';
 
 const routes: Routes = [
   { path: 'log', component: LogComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'wiki', component: WikiComponent },
   { path: 'worktime', component: WorktimeComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'inbox/:id', component: InboxDetailComponent },
 ];
 
 @NgModule({

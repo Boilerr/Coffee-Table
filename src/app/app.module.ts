@@ -25,6 +25,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { InboxDetailComponent } from './inbox-detail/inbox-detail.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -39,25 +41,27 @@ import { HttpClientModule } from '@angular/common/http';
     TagsComponent,
     WikiComponent,
     HomeComponent,
+    InboxDetailComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    AppRoutingModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        MatToolbarModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        AppRoutingModule,
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, {dataEncapsulation: false}
+        ),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

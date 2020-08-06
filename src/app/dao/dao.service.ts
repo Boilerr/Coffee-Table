@@ -27,12 +27,20 @@ export class DaoService {
   /**
    * Send Http GET to server, for get inbox messages
    */
-  getInbox(): Observable<Inbox[]> {
+  getInboxes(): Observable<Inbox[]> {
     return this.http.get<Inbox[]>(this.inboxUrl)
       .pipe(
         tap(_ => console.log('fetched inbox')),
         catchError(this.handleError<Inbox[]>('getInbox', []))
       );
+  }
+
+  getInbox(id: number): Observable<Inbox> {
+    const url = `${this.inboxUrl}/${id}`;
+    return this.http.get<Inbox>(url).pipe(
+      tap(_ => console.log(`fetched inbox id=${id}`)),
+      catchError(this.handleError<Inbox>(`getInbox id=${id}`))
+    );
   }
 
   /**
@@ -72,4 +80,16 @@ export class DaoService {
       return of(result as T);
     };
   }
+
+  /**
+   * Send Http PUT to server, for update inbox message
+   */
+  updateInbox(inbox: Inbox): Observable<any> {
+    return this.http.put(this.inboxUrl, inbox, this.httpOptions).pipe(
+      tap(_ => console.log(`updated inbox id=${inbox.id}`)),
+      catchError(this.handleError<any>('updateInbox'))
+    );
+  }
+
+
 }
