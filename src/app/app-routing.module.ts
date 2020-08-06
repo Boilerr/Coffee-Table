@@ -11,12 +11,14 @@ import {WorktimeComponent} from './worktime/worktime.component';
 import {HomeComponent} from './home/home.component';
 import {TagsComponent} from './tags/tags.component';
 import {InboxDetailComponent} from './inbox-detail/inbox-detail.component';
+import {ReferenceComponent} from './reference/reference.component';
 
 const routes: Routes = [
   { path: 'log', component: LogComponent },
   { path: 'inbox', component: InboxComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'nextaction', component: NextactionComponent },
+  { path: 'reference', component: ReferenceComponent },
   { path: 'tags', component: TagsComponent },
   { path: 'recovery', component: RecoveryComponent },
   { path: 'wiki', component: WikiComponent },
@@ -31,5 +33,3 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-
-

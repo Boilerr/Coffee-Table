@@ -27,6 +27,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InboxDetailComponent } from './inbox-detail/inbox-detail.component';
 import {FormsModule} from '@angular/forms';
+import { ReferenceComponent } from './reference/reference.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import {FormsModule} from '@angular/forms';
     WikiComponent,
     HomeComponent,
     InboxDetailComponent,
+    ReferenceComponent,
   ],
     imports: [
         HttpClientModule,
