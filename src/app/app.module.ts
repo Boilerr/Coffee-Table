@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InboxDetailComponent } from './inbox-detail/inbox-detail.component';
 import {FormsModule} from '@angular/forms';
 import { ReferenceComponent } from './reference/reference.component';
+import { ReferenceDetailComponent } from './reference-detail/reference-detail.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ReferenceComponent } from './reference/reference.component';
     HomeComponent,
     InboxDetailComponent,
     ReferenceComponent,
+    ReferenceDetailComponent,
   ],
     imports: [
         HttpClientModule,

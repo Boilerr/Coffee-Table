@@ -129,4 +129,18 @@ export class DaoService {
       catchError(this.handleError<Inbox>('deleteReference'))
     );
   }
+
+  getReference(id: number): Observable<Reference> {
+    const url = `${this.referenceUrl}/${id}`;
+    return this.http.get<Reference>(url).pipe(
+      tap(_ => console.log(`fetched reference id=${id}`)),
+      catchError(this.handleError<Inbox>(`getReference id=${id}`))
+    );
+  }
+  updateReference(reference: Reference): Observable<any> {
+    return this.http.put(this.referenceUrl, reference, this.httpOptions).pipe(
+      tap(_ => console.log(`updated reference id=${reference.id}`)),
+      catchError(this.handleError<any>('updateReference'))
+    );
+  }
 }

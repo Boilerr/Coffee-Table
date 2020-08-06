@@ -1,0 +1,13 @@
+<h1>Reference message edit</h1>
+
+<div *ngIf="msg">
+  <div><span>id: </span>{{msg.id}}</div>
+  <h2>{{msg.message | uppercase}} Details</h2>
+  <div>
+    <label>message:
+      <input [(ngModel)]="msg.message" placeholder="message"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

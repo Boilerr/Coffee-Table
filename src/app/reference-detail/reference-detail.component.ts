@@ -2,17 +2,16 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
-import {Inbox} from '../dto/inbox';
-
+import {Reference} from '../dto/reference';
 
 @Component({
-  selector: 'app-inbox-detail',
-  templateUrl: './inbox-detail.component.html',
-  styleUrls: ['./inbox-detail.component.css']
+  selector: 'app-reference-detail',
+  templateUrl: './reference-detail.component.html',
+  styleUrls: ['./reference-detail.component.css']
 })
-export class InboxDetailComponent implements OnInit {
+export class ReferenceDetailComponent implements OnInit {
 
-  @Input() msg: Inbox;
+  @Input() msg: Reference;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +21,12 @@ export class InboxDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getInbox();
+    this.getReference();
   }
 
-  getInbox(): void {
+  getReference(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.daoService.getInbox(id)
+    this.daoService.getReference(id)
       .subscribe(msg => this.msg = msg);
   }
 
@@ -36,7 +35,7 @@ export class InboxDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.daoService.updateInbox(this.msg)
+    this.daoService.updateReference(this.msg)
       .subscribe(() => this.goBack());
   }
 }
