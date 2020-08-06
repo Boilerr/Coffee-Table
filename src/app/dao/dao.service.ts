@@ -4,6 +4,7 @@ import {catchError, tap} from 'rxjs/operators';
 import {Inbox} from '../dto/inbox';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {InboxService} from './inbox.service';
+import {Reference} from '../dto/reference';
 
 /**
  * This is main DAO, including Commands Log
@@ -14,6 +15,7 @@ import {InboxService} from './inbox.service';
 export class DaoService {
 
   private inboxUrl = 'api/inbox';  // URL to web api
+  private referenceUrl = 'api/reference';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -91,5 +93,40 @@ export class DaoService {
     );
   }
 
+  /////// References
 
+  /**
+   * Send Http GET to server, for get references messages
+   */
+  getReferences(): Observable<Reference[]> {
+    return this.http.get<Reference[]>(this.referenceUrl)
+      .pipe(
+        tap(_ => console.log('fetched references')),
+        catchError(this.handleError<Inbox[]>('getReferences', []))
+      );
+  }
+
+  /**
+   * Send Http POST to server, for new references message
+   */
+  addReference(msg: Reference): Observable<Reference> {
+    return this.http.post<Reference>(this.referenceUrl, msg, this.httpOptions).pipe(
+      tap((newReference: Reference) => console.log(`added inbox w/ id=${newReference.id}`)),
+      catchError(this.handleError<Inbox>('addInbox'))
+    );
+
+  }
+
+  /**
+   * Send Http DELETE to server, for delete reference message
+   */
+  deleteReference(msg: Reference | number): Observable<Reference> {
+    const id = typeof msg === 'number' ? msg : msg.id;
+    const url = `${this.referenceUrl}/${id}`;
+
+    return this.http.delete<Reference>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted reference message id=${id}`)),
+      catchError(this.handleError<Inbox>('deleteReference'))
+    );
+  }
 }

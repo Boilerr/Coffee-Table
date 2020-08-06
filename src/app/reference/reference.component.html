@@ -1,1 +1,19 @@
-<p>reference works!</p>
+<h1>REFERENCE MATERIALS</h1>
+
+<div>
+  <label>Inbox:
+    <input #inboxMsg />
+  </label>
+  <button (click)="add(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+</div>
+<ul class="inbox">
+  <li *ngFor="let msg of reference">
+    <a>
+      <span class="badge">{{msg.id}}</span> {{msg.message}}
+    </a>
+    <button class="delete" title="delete message"
+            (click)="delete(msg)">x</button>
+  </li>
+</ul>
