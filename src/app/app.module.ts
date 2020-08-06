@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LogComponent } from './log/log.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { NextactionComponent } from './nextaction/nextaction.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -29,12 +28,12 @@ import { InboxDetailComponent } from './inbox-detail/inbox-detail.component';
 import {FormsModule} from '@angular/forms';
 import { ReferenceComponent } from './reference/reference.component';
 import { ReferenceDetailComponent } from './reference-detail/reference-detail.component';
+import { DailyLogComponent } from './daily-log/daily-log.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LogComponent,
     InboxComponent,
     NextactionComponent,
     CalendarComponent,
@@ -46,6 +45,7 @@ import { ReferenceDetailComponent } from './reference-detail/reference-detail.co
     InboxDetailComponent,
     ReferenceComponent,
     ReferenceDetailComponent,
+    DailyLogComponent,
   ],
     imports: [
         HttpClientModule,
