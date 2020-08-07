@@ -21,17 +21,32 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const inbox = [
-      {id: 1, timestamp: '09:50:15', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
-      {id: 2, timestamp: '09:50:15', message: 'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,' },
-      {id: 3, timestamp: '09:50:15', message: 'quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo' },
-      {id: 4, timestamp: '09:50:15', message: 'consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse' },
-      {id: 5, timestamp: '09:50:15', message: 'cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non' },
-      {id: 6, timestamp: '09:50:15', message: 'proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
-      {id: 7, timestamp: '09:50:15', message: 'exercitation ullamco laboris' },
-      {id: 8, timestamp: '09:50:15', message: 't, consectetur a' },
-      {id: 9, timestamp: '09:50:15', message: 'strud exercitation' },
-      {id: 10, timestamp: '09:50:15', message: 'firrst messwerw34age' }
+      { id: 1, timestamp: '09:50:15', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
+      { id: 2, timestamp: '09:50:15', message: 'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,' },
+      { id: 3, timestamp: '09:50:15', message: 'quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo' },
+      { id: 4, timestamp: '09:50:15', message: 'consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse' },
+      { id: 5, timestamp: '09:50:15', message: 'cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non' },
+      { id: 6, timestamp: '09:50:15', message: 'proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' },
+      { id: 7, timestamp: '09:50:15', message: 'exercitation ullamco laboris' },
+      { id: 8, timestamp: '09:50:15', message: 't, consectetur a' },
+      { id: 9, timestamp: '09:50:15', message: 'strud exercitation' },
+      { id: 10, timestamp: '09:50:15', message: 'firrst messwerw34age' }
     ];
-    return {reference, inbox};
+
+    const dailylog = [
+      { id: 1, timestamp: 0, from: 'Webclient', category: 'Health', message: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 2, timestamp: 0, from: 'Webclient', category: 'Health', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
+      { id: 3, timestamp: 0, from: 'Webclient', category: 'Pomodoro', message: 'Lorem 56464645ectetur adipisicing elit, sed do eiusmod' },
+      { id: 4, timestamp: 0, from: 'Webclient', category: 'Pomodoro', message: 'Lorem gfhfgh, sed do eiusmod' },
+      { id: 5, timestamp: 0, from: 'Webclient', category: 'Pomodoro', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
+      { id: 6, timestamp: 0, from: 'Webclient', category: 'Recovery', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
+      { id: 7, timestamp: 0, from: 'Webclient', category: 'Recovery', message: 'Lorem444etur adipisicing elit, sed do eiusmod' }
+      /* timestamp: Date;
+    from: string;
+    category: string;
+    message: string;*/
+
+    ];
+    return {reference, inbox, dailylog};
   }
 }

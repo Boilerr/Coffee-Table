@@ -5,6 +5,7 @@ import {Inbox} from '../dto/inbox';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {InboxService} from './inbox.service';
 import {Reference} from '../dto/reference';
+import {Dailylog} from '../dto/dailylog';
 
 /**
  * This is main DAO, including Commands Log
@@ -14,8 +15,10 @@ import {Reference} from '../dto/reference';
 })
 export class DaoService {
 
-  private inboxUrl = 'api/inbox';  // URL to web api
-  private referenceUrl = 'api/reference';  // URL to web api
+  // URLs to web api
+  private inboxUrl = 'api/inbox';
+  private referenceUrl = 'api/reference';
+  private dailylogUrl = 'api/dailylog';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -143,4 +146,29 @@ export class DaoService {
       catchError(this.handleError<any>('updateReference'))
     );
   }
+
+  /////// Daily log
+  
+  /**
+   * Send Http GET to server, for get references messages
+   */
+  getDailylog(): Observable<Dailylog[]> {
+    return this.http.get<Dailylog[]>(this.dailylogUrl)
+      .pipe(
+        tap(_ => console.log('fetched Dailylog')),
+        catchError(this.handleError<Inbox[]>('getDailylog', []))
+      );
+  }// need more simplified return of date from DB
+
+  /**
+   * Send Http POST to server, for new inbox message
+   */
+  addDailylog(msg: Dailylog): Observable<Dailylog> {
+    return this.http.post<Dailylog>(this.dailylogUrl, msg, this.httpOptions).pipe(
+      tap((newDailylog: Dailylog) => console.log(`added dailylog w/ id=${newDailylog.timestamp}`)),
+      catchError(this.handleError<Inbox>('addDailylog'))
+    );
+
+  }
+
 }

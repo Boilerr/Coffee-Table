@@ -1,1 +1,53 @@
-<p>daily-log works!</p>
+<h1>DAILY LOG</h1>
+<!--todo create material fast search in input for category - best option because only keyboard, or material select
+  todo create material date picker or something
+  todo add case when only message input - then timestamp is Now, and property go default-->
+
+<div>
+  <h2> {{timenow | date:'y - MMMM (M) - dd, EEEE'}}</h2> <!--2020 - August (8) - 07, Friday-->
+</div>
+
+<h2>Compose new dailylog:</h2>
+
+
+<form [formGroup]="myGroup" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <label>
+      <input #tt1 matInput type="datetime-local">
+    </label>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Category:</mat-label>
+    <label>
+      <textarea #tt2 matInput placeholder="Choose category:..."></textarea>
+    </label>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Message:</mat-label>
+    <label>
+      <textarea #tt3 matInput placeholder="Message..."></textarea>
+    </label>
+  </mat-form-field>
+
+  <button mat-button color="primary"
+          (click)="add3(tt1.value, tt2.value, tt3.value); tt1.value=''; tt2.value=''; tt3.value=''">
+    add
+  </button>
+</form>
+
+
+<ul class="inbox">
+  <li *ngFor="let msg of dailylog">
+    <a>
+      <span class="badge">{{msg.id}}</span>
+      <span class="badge">{{msg.timestamp | date: 'medium'}}</span>
+      <span class="badge">{{msg.from}}</span>
+      <span class="badge">{{msg.category}}</span>{{msg.message}}
+    </a>
+
+  </li>
+</ul>
+
