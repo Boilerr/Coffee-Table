@@ -148,7 +148,7 @@ export class DaoService {
   }
 
   /////// Daily log
-  
+
   /**
    * Send Http GET to server, for get references messages
    */
