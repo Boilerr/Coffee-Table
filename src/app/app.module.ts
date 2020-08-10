@@ -30,6 +30,9 @@ import { ReferenceComponent } from './reference/reference.component';
 import { ReferenceDetailComponent } from './reference-detail/reference-detail.component';
 import { DailyLogComponent } from './daily-log/daily-log.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatTreeModule} from '@angular/material/tree';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -46,28 +49,31 @@ import {MatInputModule} from '@angular/material/input';
     ReferenceComponent,
     ReferenceDetailComponent,
     DailyLogComponent,
+    ProjectComponent,
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    AppRoutingModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
-    ),
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        MatToolbarModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        AppRoutingModule,
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, {dataEncapsulation: false}
+        ),
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatTreeModule,
+        DragDropModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
