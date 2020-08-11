@@ -13,6 +13,7 @@ import {InboxDetailComponent} from './inbox-detail/inbox-detail.component';
 import {ReferenceComponent} from './reference/reference.component';
 import {ReferenceDetailComponent} from './reference-detail/reference-detail.component';
 import {DailyLogComponent} from './daily-log/daily-log.component';
+import {ProjectComponent} from './project/project.component';
 
 const routes: Routes = [
   { path: 'dailylog', component: DailyLogComponent },
@@ -22,12 +23,12 @@ const routes: Routes = [
   { path: 'reference', component: ReferenceComponent },
   { path: 'tags', component: TagsComponent },
   { path: 'recovery', component: RecoveryComponent },
-  { path: 'wiki', component: WikiComponent },
+  { path: 'wiki', component: WikiComponent, children: [{path: 'project/:id', component: ProjectComponent}]},
   { path: 'worktime', component: WorktimeComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'inbox/:id', component: InboxDetailComponent },
-  { path: 'reference/:id', component: ReferenceDetailComponent },
+  { path: 'reference/:id', component: ReferenceDetailComponent }
 ];
 
 @NgModule({
