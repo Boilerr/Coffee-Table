@@ -33,6 +33,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTreeModule} from '@angular/material/tree';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ProjectComponent } from './project/project.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -51,29 +53,31 @@ import { ProjectComponent } from './project/project.component';
     DailyLogComponent,
     ProjectComponent,
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        MatToolbarModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        AppRoutingModule,
-        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-        // and returns simulated server responses.
-        // Remove it when a real server is ready to receive requests.
-        HttpClientInMemoryWebApiModule.forRoot(
-            InMemoryDataService, {dataEncapsulation: false}
-        ),
-        FormsModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatTreeModule,
-        DragDropModule,
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    AppRoutingModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    ),
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTreeModule,
+    DragDropModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -4,13 +4,11 @@ import {ExampleFlatNode} from '../dto/ExampleFlatNode';
 import {FoodNode} from '../dto/FoodNode';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {SelectionModel} from '@angular/cdk/collections';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import {Component, Injectable} from '@angular/core';
-import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
-import {BehaviorSubject} from 'rxjs';
+import {Injectable} from '@angular/core';
 import {ChecklistDatabase} from './ChecklistDatabase';
 import {TodoItemFlatNode} from '../dto/TodoItemFlatNode';
 import {TodoItemNode} from '../dto/TodoItemNode';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-wiki',
@@ -41,7 +39,7 @@ export class WikiComponent {
   /** The selection for checklist */
   checklistSelection = new SelectionModel<TodoItemFlatNode>(true /* multiple */);
 
-  constructor(private _database: ChecklistDatabase) {
+  constructor(private _database: ChecklistDatabase, private route: ActivatedRoute, private router: Router) {
     this.treeFlattener = new MatTreeFlattener(this.transformer, this.getLevel,
       this.isExpandable, this.getChildren);
     this.treeControl = new FlatTreeControl<TodoItemFlatNode>(this.getLevel, this.isExpandable);
@@ -168,5 +166,10 @@ export class WikiComponent {
     const nestedNode = this.flatNodeMap.get(node);
     this._database.updateItem(nestedNode!, itemValue);
   }
+
+  showEE(num: number): void {
+    this.router.navigate(['project/' + num], {relativeTo: this.route});
+  }
+
 }
 

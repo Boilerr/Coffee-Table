@@ -17,9 +17,9 @@ body, html {
 }
 
 .middlepane {
-  width: 50%;
+  width: 75%;
   height: 100%;
-  float: left;
+  float: right;
   background-color: royalblue;
   border-collapse: collapse;
 }

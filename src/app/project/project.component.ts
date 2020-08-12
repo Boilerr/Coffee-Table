@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {MatAccordion} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-project',
@@ -8,6 +9,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProjectComponent implements OnInit {
   id: number;
+  panelOpenState = false;
+  @ViewChild(MatAccordion) accordion: MatAccordion;
 
   constructor(private route: ActivatedRoute) { }
 
