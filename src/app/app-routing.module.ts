@@ -19,11 +19,11 @@ const routes: Routes = [
   { path: 'dailylog', component: DailyLogComponent },
   { path: 'inbox', component: InboxComponent },
   { path: 'calendar', component: CalendarComponent },
-  { path: 'nextaction', component: NextactionComponent },
+  { path: 'nextaction', component: NextactionComponent, children: [{path: 'project/:id', component: ProjectComponent}]},
   { path: 'reference', component: ReferenceComponent },
   { path: 'tags', component: TagsComponent },
   { path: 'recovery', component: RecoveryComponent },
-  { path: 'wiki', component: WikiComponent, children: [{path: 'project/:id', component: ProjectComponent}]},
+  { path: 'wiki', component: WikiComponent} ,
   { path: 'worktime', component: WorktimeComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
