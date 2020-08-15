@@ -37,6 +37,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {RouterModule} from '@angular/router';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {RouterModule} from '@angular/router';
     MatExpansionModule,
     MatDatepickerModule,
     MatProgressBarModule,
-    RouterModule
+    RouterModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
