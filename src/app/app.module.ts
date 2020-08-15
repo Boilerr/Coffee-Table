@@ -35,6 +35,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ProjectComponent } from './project/project.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     ReferenceComponent,
     ReferenceDetailComponent,
     DailyLogComponent,
-    ProjectComponent,
+    ProjectComponent
   ],
   imports: [
     HttpClientModule,
@@ -77,6 +79,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     DragDropModule,
     MatExpansionModule,
     MatDatepickerModule,
+    MatProgressBarModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
