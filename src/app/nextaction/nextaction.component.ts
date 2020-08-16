@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Inbox} from '../dto/inbox';
+import {DaoService} from '../dao/dao.service';
+import {Task} from '../dto/task';
 
 
 /**
@@ -22,9 +25,19 @@ export class NextactionComponent implements OnInit {
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   expandedElement: PeriodicElement | null;
 
-  constructor() { }
+  tasks: Task[];
+
+  constructor(private daoService: DaoService) {
+  }
 
   ngOnInit(): void {
+    this.getTasks();
+  }
+
+
+  getTasks(): void {
+    this.daoService.getTasks()
+      .subscribe(tasks => this.tasks = tasks);
   }
 
 }
@@ -118,3 +131,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
         two-thirds the density of air.`
   },
 ];
+

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {Inbox} from '../dto/inbox';
+import {Task} from '../dto/task';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {InboxService} from './inbox.service';
 import {Reference} from '../dto/reference';
@@ -19,6 +20,7 @@ export class DaoService {
   private inboxUrl = 'api/inbox';
   private referenceUrl = 'api/reference';
   private dailylogUrl = 'api/dailylog';
+  private taskUrl = 'api/task';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -171,4 +173,11 @@ export class DaoService {
 
   }
 
+  getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.taskUrl)
+      .pipe(
+        tap(_ => console.log('fetched Task')),
+        catchError(this.handleError<Task[]>('getTasks', []))
+      );
+  }
 }

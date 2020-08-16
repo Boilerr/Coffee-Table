@@ -41,12 +41,20 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 5, timestamp: 0, from: 'Webclient', category: 'Pomodoro', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
       { id: 6, timestamp: 0, from: 'Webclient', category: 'Recovery', message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod' },
       { id: 7, timestamp: 0, from: 'Webclient', category: 'Recovery', message: 'Lorem444etur adipisicing elit, sed do eiusmod' }
-      /* timestamp: Date;
-    from: string;
-    category: string;
-    message: string;*/
+  ];
 
+    const task = [
+      { id: 1, title: 'Do some ng', status: 'Active', flagged: true, tags: ['Health', 'Job', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'Do 30 pups', status: 'Active', flagged: false, tags: ['Health', 'Job', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'Find truth', status: 'Done', flagged: true, tags: ['Health', 'Job', 'Recovery', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'Look catst', status: 'Deleted', flagged: true, tags: ['Health'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'Best Lokes', status: 'Active', flagged: false, tags: ['Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'some title', status: 'Paused', flagged: true, tags: ['Health', 'Job', 'Recovery', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'so3456itle', status: 'Deleted', flagged: true, tags: ['Job', 'Recovery'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'some title', status: 'Done', flagged: false, tags: ['Health', 'Recovery', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'some title', status: 'Active', flagged: false, tags: ['Health', 'Recovery', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
+      { id: 1, title: 'some title', status: 'Paused', flagged: false, tags: ['Health', 'Recovery', 'Work Time'], note: 'Lorem gfh564r adipisicing elit, sed do eiusmod' },
     ];
-    return {reference, inbox, dailylog};
+    return {reference, inbox, dailylog, task};
   }
 }

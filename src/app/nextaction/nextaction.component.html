@@ -38,3 +38,19 @@
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
 
+<h1>INBOX</h1>
+
+<div>
+  <label>Inbox:
+    <input #inboxMsg />
+  </label>
+
+</div>
+<ul class="inbox">
+  <li *ngFor="let msg of tasks">
+    <a routerLink="/inbox/{{msg.id}}">
+      <span class="badge">{{msg.id}}</span> {{msg.title}}
+    </a>
+
+  </li>
+</ul>
