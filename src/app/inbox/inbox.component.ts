@@ -18,7 +18,7 @@ export class InboxComponent implements OnInit {
 
   getInbox(): void {
     this.daoService.getInboxes()
-      .subscribe(inbox => this.inbox = inbox);
+      .subscribe(inbox => this.inbox = inbox['inbox']);
   }
 
   add(message: string): void {
