@@ -1,0 +1,66 @@
+<p>PROJECT-DETAIL WORKS!</p>
+todo:
+show name and all details
+btn new Task
+visual line
+
+and all tasks with details
+btn delete
+clicked go edit task
+
+
+<!--<div *ngIf="msg">
+  <p>{{msg.id}}</p>
+  <p>{{msg.text}}</p>
+  <p>{{msg.flagged}}</p>
+  <p>{{msg.active}}</p>
+  <p>{{msg.createdAt}}</p>
+  <p>{{msg.updatedAt}}</p>
+  &lt;!&ndash;<div><span>id: </span>{{msg.id}}</div>&ndash;&gt;
+  <h2>{{msg.message | uppercase}} Details</h2>
+  <div>
+    <label>message:
+      <input [(ngModel)]="msg.message" placeholder="message"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>-->
+
+
+<!--
+
+"createdAt": "2020-08-20T06:51:58.082+00:00",
+"updatedAt": "2020-08-20T06:51:58.082+00:00",
+"id": 1000,
+"title": "The 777title f45645or Projects",
+"description": "Some des786786criptions for Project"
+-->
+<!--
+"createdAt": "2020-08-20T07:34:04.761+00:00",
+"updatedAt": "2020-08-20T07:34:04.761+00:00",
+"id": 1005,
+"text": "Its easy add Projectstryrtyr1001",
+"flagged": null,
+"active": null-->
+
+
+<h1>TASKS</h1>
+
+<div>
+  <label>New Task:
+    <input #inboxMsg />
+  </label>
+  <button (click)="add(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+</div>
+
+<ul class="inbox">
+  <li *ngFor="let msg of tasks">
+    <a routerLink="/tasks/{{msg.id}}">
+      <span class="badge">{{msg.id}}</span> {{msg.text}}
+    </a>
+
+  </li>
+</ul>
