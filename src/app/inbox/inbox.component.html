@@ -1,7 +1,7 @@
 <h1>INBOX</h1>
 
 <div>
-  <label>Inbox:
+  <label>Add message:
     <input #inboxMsg />
   </label>
   <button (click)="add(inboxMsg.value); inboxMsg.value=''">
@@ -9,12 +9,13 @@
   </button>
 </div>
 <ul class="inbox">
-  <li *ngFor="let msg of inbox">
-    <a routerLink="/inbox/{{msg.id}}">
-      <span class="badge">{{msg.id}}</span> <span class="badge">{{msg.timestamp}}</span>{{msg.message}}
-    </a>
+  <li *ngFor="let inbox of inboxes">
+      <span class="badge">{{inbox.id}}</span>
+      {{inbox.title}}
+      {{inbox.description}}
+      {{inbox.createdAt}}
+      {{inbox.updatedAt}}
     <button class="delete" title="delete message"
-            (click)="delete(msg)">x</button>
+            (click)="delete(inbox)">x</button>
   </li>
 </ul>
-

@@ -13,7 +13,7 @@
   padding: .3em 0;
   height: 1.6em;
   border-radius: 4px;
-  width: 550px;
+  width: 950px;
 }
 
 .inbox li:hover {
@@ -67,9 +67,8 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 540px;
+  left: 340px;
   top: -32px;
   background-color: gray !important;
   color: white;
 }
-

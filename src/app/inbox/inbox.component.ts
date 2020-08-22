@@ -8,7 +8,7 @@ import {DaoService} from '../dao/dao.service';
   styleUrls: ['./inbox.component.css']
 })
 export class InboxComponent implements OnInit {
-  inbox: Inbox[];
+  inboxes: Inbox[];
 
   constructor(private daoService: DaoService) { }
 
@@ -18,20 +18,21 @@ export class InboxComponent implements OnInit {
 
   getInbox(): void {
     this.daoService.getInboxes()
-      .subscribe(inbox => this.inbox = inbox['inbox']);
+      .subscribe(inbox => this.inboxes = inbox['content']);
   }
 
   add(message: string): void {
     message = message.trim();
     if (!message) { return; }
-    this.daoService.addInbox({ message } as Inbox) // Black magic of TS, Probably create new Inbox and fill message with string
+    const inbox = new Inbox(message);
+    this.daoService.addInbox(inbox)
       .subscribe(msg => {
-        this.inbox.push(msg);
+        this.inboxes.push(msg);
       });
   }
 
   delete(msg: Inbox): void {
-    this.inbox = this.inbox.filter(h => h !== msg);
+    this.inboxes = this.inboxes.filter(h => h !== msg);
     this.daoService.deleteInbox(msg).subscribe();
   }
 

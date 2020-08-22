@@ -1,5 +1,11 @@
-export interface Inbox {
+export class Inbox {
   id: number;
-  timestamp: string;
-  message: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+
+  constructor(title: string) {
+    this.title = title;
+  }
 }
