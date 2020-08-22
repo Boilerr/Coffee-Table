@@ -4,7 +4,6 @@ import {catchError, tap} from 'rxjs/operators';
 import {Inbox} from '../dto/inbox';
 import {Task} from '../dto/task';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {InboxService} from './inbox.service';
 import {Reference} from '../dto/reference';
 import {Dailylog} from '../dto/dailylog';
 import {Project} from '../dto/project';
@@ -33,8 +32,7 @@ export class DaoService {
   };
 
   constructor(
-    private http: HttpClient,
-    private inboxService: InboxService) {
+    private http: HttpClient) {
   }
 
   getProject(projectId: number): Observable<Project> {
