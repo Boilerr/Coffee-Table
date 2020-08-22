@@ -1,60 +1,56 @@
-<p>PROJECT-DETAIL WORKS!</p>
-todo:
-show name and all details
-btn new Task
-visual line
+<h1>Project details</h1>
+<div *ngIf="project">
+  <h4>Project name:</h4>
+  <h2>{{project.title | uppercase}}</h2>
+  <mat-divider></mat-divider>
+  <h4>Project description:</h4>
+  <h2>{{project.description}}</h2>
 
-and all tasks with details
-btn delete
-clicked go edit task
+  <mat-divider></mat-divider>
+  <h4>project id: {{project.id}}</h4>
+  <h4>created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}</h4>
+  <h4>updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}</h4>
+  <mat-divider></mat-divider>
 
-
-<!--<div *ngIf="msg">
-  <p>{{msg.id}}</p>
-  <p>{{msg.text}}</p>
-  <p>{{msg.flagged}}</p>
-  <p>{{msg.active}}</p>
-  <p>{{msg.createdAt}}</p>
-  <p>{{msg.updatedAt}}</p>
-  &lt;!&ndash;<div><span>id: </span>{{msg.id}}</div>&ndash;&gt;
-  <h2>{{msg.message | uppercase}} Details</h2>
+  <h2>Edit</h2>
   <div>
-    <label>message:
-      <input [(ngModel)]="msg.message" placeholder="message"/>
+    <p>
+    <label>name:
+      <input [(ngModel)]="project.title" placeholder="title"/>
     </label>
+    </p>
   </div>
   <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-</div>-->
+  <button (click)="saveTitle()">save title</button>
+
+  <mat-divider></mat-divider>
+
+  <div>
+    <p>
+    <label>description:
+      <input [(ngModel)]="project.description" placeholder="description"/>
+    </label>
+  </p>
+  </div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="saveDescription()">save description</button>
+
+</div>
 
 
-<!--
+<mat-divider></mat-divider>
 
-"createdAt": "2020-08-20T06:51:58.082+00:00",
-"updatedAt": "2020-08-20T06:51:58.082+00:00",
-"id": 1000,
-"title": "The 777title f45645or Projects",
-"description": "Some des786786criptions for Project"
--->
-<!--
-"createdAt": "2020-08-20T07:34:04.761+00:00",
-"updatedAt": "2020-08-20T07:34:04.761+00:00",
-"id": 1005,
-"text": "Its easy add Projectstryrtyr1001",
-"flagged": null,
-"active": null-->
-
-
-<h1>TASKS</h1>
-
+<h1>TASKS:</h1>
 <div>
   <label>New Task:
     <input #inboxMsg />
   </label>
-  <button (click)="add(inboxMsg.value); inboxMsg.value=''">
+  <button (click)="addTask(inboxMsg.value); inboxMsg.value=''">
     add
   </button>
 </div>
+<mat-divider></mat-divider>
 
 <ul class="inbox">
   <li *ngFor="let msg of tasks">
@@ -64,3 +60,8 @@ clicked go edit task
 
   </li>
 </ul>
+
+<mat-divider></mat-divider>
+<h4>Delete project with all tasks inside:</h4>
+<button class="delete" title="delete task"
+        (click)="deleteProject(project)">x</button>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Project} from '../dto/project';
 import {ActivatedRoute} from '@angular/router';
 import {DaoService} from '../dao/dao.service';
@@ -12,32 +12,61 @@ import {Task} from '../dto/task';
 })
 export class ProjectDetailComponent implements OnInit {
   tasks: Task[];
+  project: Project;
 
-constructor(
-  private route: ActivatedRoute,
-  private daoService: DaoService,
-  private location: Location
-) {
-}
+  constructor(
+    private route: ActivatedRoute,
+    private daoService: DaoService,
+    private location: Location
+  ) {
+  }
 
-ngOnInit(): void {
-  this.getTasks();
-}
+  ngOnInit(): void {
+    this.getTasks();
+    this.getProject();
+  }
 
   getTasks(): void {
-  const id = +this.route.snapshot.paramMap.get('id');
-  console.log(id);
-  this.daoService.getTasksByProjectId(id).subscribe(data => this.tasks = data);
-}
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.daoService.getTasksByProjectId(id).subscribe(data => this.tasks = data);
+  }
 
-goBack(): void {
-  this.location.back();
-}
+  getProject(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log('getTask' + id);
+    this.daoService.getProject(id)
+      .subscribe(hero => this.project = hero);
+  }
 
-/*save(): void {
-  this.daoService.updateInbox(this.msg)
-    .subscribe(() => this.goBack());
-}*/
-  add(value: string): void {
+  goBack(): void {
+    this.location.back();
+  }
+
+  addTask(taskText: string): void {
+    taskText = taskText.trim();
+    if (!taskText) {
+      return;
+    }
+    const id = +this.route.snapshot.paramMap.get('id');
+    const task = new Task(taskText);
+    this.daoService.addTask(task, id)
+      .subscribe(msg => {
+        this.tasks.push(msg);
+      });
+  }
+
+  saveTitle(): void {
+    this.daoService.updateProject(this.project)
+      .subscribe(() => this.goBack());
+  }
+
+  saveDescription(): void {
+    this.daoService.updateProject(this.project)
+      .subscribe(() => this.goBack());
+  }
+
+  deleteProject(project: Project): void {
+    this.daoService.deleteProject(project).subscribe(() => this.goBack());
   }
 }
