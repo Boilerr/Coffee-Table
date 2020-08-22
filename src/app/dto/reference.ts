@@ -1,4 +1,11 @@
-export interface Reference {
+export class Reference {
   id: number;
-  message: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+
+  constructor(title: string) {
+    this.title = title;
+  }
 }

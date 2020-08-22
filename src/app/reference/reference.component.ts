@@ -8,7 +8,7 @@ import {Reference} from '../dto/reference';
   styleUrls: ['./reference.component.css']
 })
 export class ReferenceComponent implements OnInit {
-  reference: Reference[];
+  references: Reference[];
 
   constructor(private daoService: DaoService) { }
 
@@ -18,21 +18,21 @@ export class ReferenceComponent implements OnInit {
 
   getReference(): void {
     this.daoService.getReferences()
-      .subscribe(reference => this.reference = reference);
+      .subscribe(reference => this.references = reference['content']);
   }
 
   add(message: string): void {
     message = message.trim();
     if (!message) { return; }
-    this.daoService.addReference({ message } as Reference) // Black magic of TS, Probably create new Inbox and fill message with string
+    const reference = new Reference(message);
+    this.daoService.addReference(reference)
       .subscribe(msg => {
-        this.reference.push(msg);
+        this.references.push(msg);
       });
   }
 
   delete(msg: Reference): void {
-    this.reference = this.reference.filter(h => h !== msg);
+    this.references = this.references.filter(h => h !== msg);
     this.daoService.deleteReference(msg).subscribe();
   }
-
 }
