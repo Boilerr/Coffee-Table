@@ -1,8 +1,12 @@
-export interface Task {
+export class Task {
   id: number;
-  title: string;
-  status: string;
+  text: string;
+  active: boolean;
   flagged: boolean;
-  tags: string[];
-  note: string;
+  createdAt: string;
+  updatedAt: string;
+
+  constructor(text: string) {
+    this.text = text;
+  }
 }

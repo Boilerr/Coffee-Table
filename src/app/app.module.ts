@@ -12,7 +12,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { InboxComponent } from './inbox/inbox.component';
-import { NextactionComponent } from './nextaction/nextaction.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { WorktimeComponent } from './worktime/worktime.component';
 import { RecoveryComponent } from './recovery/recovery.component';
@@ -38,12 +37,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {RouterModule} from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { TaskComponent } from './task/task.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     InboxComponent,
-    NextactionComponent,
     CalendarComponent,
     WorktimeComponent,
     RecoveryComponent,
@@ -54,36 +56,40 @@ import {MatTableModule} from '@angular/material/table';
     ReferenceComponent,
     ReferenceDetailComponent,
     DailyLogComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectDetailComponent,
+    TaskComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    AppRoutingModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {dataEncapsulation: false}
-    ),
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTreeModule,
-    DragDropModule,
-    MatExpansionModule,
-    MatDatepickerModule,
-    MatProgressBarModule,
-    RouterModule,
-    MatTableModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        MatToolbarModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        AppRoutingModule,
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
+        /*HttpClientInMemoryWebApiModule.forRoot(
+          InMemoryDataService, {dataEncapsulation: false}
+        ),*/
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatTreeModule,
+        DragDropModule,
+        MatExpansionModule,
+        MatDatepickerModule,
+        MatProgressBarModule,
+        RouterModule,
+        MatTableModule,
+        MatDividerModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
