@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
 import {Inbox} from '../dto/inbox';
+import {InboxDaoService} from '../dao/inbox-dao.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class InboxDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private daoService: DaoService,
+    private inboxDaoService: InboxDaoService,
     private location: Location
   ) {
   }
@@ -27,7 +27,7 @@ export class InboxDetailComponent implements OnInit {
 
   getInbox(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.daoService.getInbox(id)
+    this.inboxDaoService.getInbox(id)
       .subscribe(msg => this.msg = msg);
   }
 
@@ -36,7 +36,7 @@ export class InboxDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.daoService.updateInbox(this.msg)
+    this.inboxDaoService.updateInbox(this.msg)
       .subscribe(() => this.goBack());
   }
 }

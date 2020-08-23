@@ -33,51 +33,9 @@ export class DaoService {
     private http: HttpClient) {
   }
 
-  /**
-   * Send Http GET to server, for get inbox messages
-   */
-  getInboxes(): Observable<Inbox[]> {
-    return this.http.get<Inbox[]>(this.inboxUrl)
-      .pipe(
-        tap(_ => console.log('fetched inbox')),
-        catchError(this.handleError<Inbox[]>('getInbox', []))
-      );
-  }
 
-  getInbox(id: number): Observable<Inbox> {
-    const url = `${this.inboxUrl}/${id}`;
-    return this.http.get<Inbox>(url)
-      .pipe(
-        tap(_ => console.log(`fetched inbox id=${id}`)),
-        catchError(this.handleError<Inbox>(`getInbox id=${id}`))
-      );
-  }
 
-  /**
-   * Send Http DELETE to server, for delete inbox message
-   */
-  deleteInbox(msg: Inbox | number): Observable<Inbox> {
-    const id = typeof msg === 'number' ? msg : msg.id;
-    const url = `${this.inboxUrl}/${id}`;
 
-    return this.http.delete<Inbox>(url, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`deleted inbox message id=${id}`)),
-        catchError(this.handleError<Inbox>('deleteInbox'))
-      );
-  }
-
-  /**
-   * Send Http POST to server, for new inbox message
-   */
-  addInbox(msg: Inbox): Observable<Inbox> {
-    return this.http.post<Inbox>(this.inboxUrl, msg, this.httpOptions)
-      .pipe(
-        tap((newInbox: Inbox) => console.log(`added inbox w/ id=${newInbox.id}`)),
-        catchError(this.handleError<Inbox>('addInbox'))
-      );
-
-  }
 
   private handleError<T>(operation = 'operation', result?: T): any {
     return (error: any): Observable<T> => {
@@ -93,16 +51,7 @@ export class DaoService {
     };
   }
 
-  /**
-   * Send Http PUT to server, for update inbox message
-   */
-  updateInbox(inbox: Inbox): Observable<any> {
-    return this.http.put(this.inboxUrl, inbox, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`updated inbox id=${inbox.id}`)),
-        catchError(this.handleError<any>('updateInbox'))
-      );
-  }
+
 
   /////// References
 

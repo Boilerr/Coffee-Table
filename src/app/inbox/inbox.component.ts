@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Inbox} from '../dto/inbox';
-import {DaoService} from '../dao/dao.service';
+import {InboxDaoService} from '../dao/inbox-dao.service';
 
 @Component({
   selector: 'app-inbox',
@@ -10,14 +10,14 @@ import {DaoService} from '../dao/dao.service';
 export class InboxComponent implements OnInit {
   inboxes: Inbox[];
 
-  constructor(private daoService: DaoService) { }
+  constructor( private inboxDaoService: InboxDaoService) { }
 
   ngOnInit(): void {
     this.getInbox();
   }
 
   getInbox(): void {
-    this.daoService.getInboxes()
+    this.inboxDaoService.getInboxes()
       .subscribe(inbox => this.inboxes = inbox['content']);
   }
 
@@ -25,7 +25,7 @@ export class InboxComponent implements OnInit {
     message = message.trim();
     if (!message) { return; }
     const inbox = new Inbox(message);
-    this.daoService.addInbox(inbox)
+    this.inboxDaoService.addInbox(inbox)
       .subscribe(msg => {
         this.inboxes.push(msg);
       });
@@ -33,7 +33,7 @@ export class InboxComponent implements OnInit {
 
   delete(msg: Inbox): void {
     this.inboxes = this.inboxes.filter(h => h !== msg);
-    this.daoService.deleteInbox(msg).subscribe();
+    this.inboxDaoService.deleteInbox(msg).subscribe();
   }
 
 }
