@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
 import {Task} from '../dto/task';
+import {TaskDaoService} from '../dao/task-dao.service';
 
 @Component({
   selector: 'app-task',
@@ -14,9 +14,10 @@ export class TaskComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private daoService: DaoService,
+    private taskDaoService: TaskDaoService,
     private location: Location
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getTask();
@@ -24,10 +25,7 @@ export class TaskComponent implements OnInit {
 
   getTask(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    const tid = +this.route.snapshot.paramMap.get('tid');
-    console.log('getTask' + id);
-    console.log('getTask t' + tid);
-    this.daoService.getTask(id)
+    this.taskDaoService.getTask(id)
       .subscribe(hero => this.task = hero);
   }
 
@@ -36,12 +34,11 @@ export class TaskComponent implements OnInit {
   }
 
   save(): void {
-    this.daoService.updateTask(this.task)
+    this.taskDaoService.updateTask(this.task)
       .subscribe(() => this.goBack());
   }
 
   deleteTask(task: Task): void {
-    // this.task = this.task.filter(h => h !== task);
-    this.daoService.deleteTask(task).subscribe(() => this.goBack());
+    this.taskDaoService.deleteTask(task).subscribe(() => this.goBack());
   }
 }

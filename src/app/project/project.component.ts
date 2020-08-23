@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Project} from '../dto/project';
-import {DaoService} from '../dao/dao.service';
 import {ProjectDaoService} from '../dao/project-dao.service';
 
 @Component({

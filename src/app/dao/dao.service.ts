@@ -24,7 +24,6 @@ export class DaoService {
   private inboxUrl = 'http://localhost:8080/inbox';
   private referenceUrl = 'http://localhost:8080/reference';
   private dailylogUrl = 'http://localhost:8080/dailylog';
-  private taskUrl = 'http://localhost:8080/tasks';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -32,26 +31,6 @@ export class DaoService {
 
   constructor(
     private http: HttpClient) {
-  }
-
-  updateTask(task: Task): Observable<any> {
-    const url = `${this.taskUrl}/${task.id}`;
-    console.log('updateTask' + url);
-    return this.http.put(url, task, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`updated task id=${task.id}`)),
-        catchError(this.handleError<any>('updateTask'))
-      );
-  }
-
-  getTask(taskId: number): Observable<Task> {
-    const url = `${this.taskUrl}/${taskId}`;
-    console.log(url);
-    return this.http.get<Task>(url)
-      .pipe(
-        tap(_ => console.log(`fetched task id=${taskId}`)),
-        catchError(this.handleError<Task>(`getTask id=${taskId}`))
-      );
   }
 
   /**
@@ -205,14 +184,4 @@ export class DaoService {
       );
 
   }
-
-  deleteTask(task: Task): Observable<Task> {
-    const url = `${this.taskUrl}/${task.id}`;
-    return this.http.delete<Task>(url, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`deleted task message id=${task.id}`)),
-        catchError(this.handleError<Task>('deleteTask'))
-      );
-  }
-
 }

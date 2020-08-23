@@ -5,14 +5,12 @@ import {Task} from '../dto/task';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Project} from '../dto/project';
 
-/** This is DAO for Project endpoints
- * This is place If you want change Source: DB, in memory DB, File, Public API, etc
- */
+/** This is DAO for Project endpoints */
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectDaoService {
-
+  // This is place If you want change Source: DB, in memory DB, File, Public API, etc
   private projectsUrl = 'http://localhost:8080/projects';
 
   httpOptions = {
