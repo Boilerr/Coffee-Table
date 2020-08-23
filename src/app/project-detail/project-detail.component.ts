@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
 import {Task} from '../dto/task';
+import {ProjectDaoService} from '../dao/project-dao.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -16,7 +17,7 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private daoService: DaoService,
+    private projectDaoService: ProjectDaoService,
     private location: Location
   ) {
   }
@@ -29,13 +30,13 @@ export class ProjectDetailComponent implements OnInit {
   getTasks(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.daoService.getTasksByProjectId(id).subscribe(data => this.tasks = data);
+    this.projectDaoService.getTasksByProjectId(id).subscribe(data => this.tasks = data);
   }
 
   getProject(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log('getTask' + id);
-    this.daoService.getProject(id)
+    this.projectDaoService.getProject(id)
       .subscribe(hero => this.project = hero);
   }
 
@@ -50,23 +51,23 @@ export class ProjectDetailComponent implements OnInit {
     }
     const id = +this.route.snapshot.paramMap.get('id');
     const task = new Task(taskText);
-    this.daoService.addTask(task, id)
+    this.projectDaoService.addTaskByProjectId(task, id)
       .subscribe(msg => {
         this.tasks.push(msg);
       });
   }
 
   saveTitle(): void {
-    this.daoService.updateProject(this.project)
+    this.projectDaoService.updateProject(this.project)
       .subscribe(() => this.goBack());
   }
 
   saveDescription(): void {
-    this.daoService.updateProject(this.project)
+    this.projectDaoService.updateProject(this.project)
       .subscribe(() => this.goBack());
   }
 
   deleteProject(project: Project): void {
-    this.daoService.deleteProject(project).subscribe(() => this.goBack());
+    this.projectDaoService.deleteProject(project).subscribe(() => this.goBack());
   }
 }

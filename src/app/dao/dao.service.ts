@@ -25,7 +25,6 @@ export class DaoService {
   private referenceUrl = 'http://localhost:8080/reference';
   private dailylogUrl = 'http://localhost:8080/dailylog';
   private taskUrl = 'http://localhost:8080/tasks';
-  private projectsUrl = 'http://localhost:8080/projects';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -35,15 +34,6 @@ export class DaoService {
     private http: HttpClient) {
   }
 
-  getProject(projectId: number): Observable<Project> {
-    const url = `${this.projectsUrl}/${projectId}`;
-    return this.http.get<Project>(url)
-      .pipe(
-      tap(_ => console.log(`fetched project id=${projectId}`)),
-      catchError(this.handleError<Project>(`getProject id=${projectId}`))
-    );
-  }
-
   updateTask(task: Task): Observable<any> {
     const url = `${this.taskUrl}/${task.id}`;
     console.log('updateTask' + url);
@@ -51,55 +41,6 @@ export class DaoService {
       .pipe(
         tap(_ => console.log(`updated task id=${task.id}`)),
         catchError(this.handleError<any>('updateTask'))
-      );
-  }
-
-  updateProject(project: Project): Observable<any> {
-    const url = `${this.projectsUrl}/${project.id}`;
-    console.log('updateProject' + url);
-    return this.http.put(url, project, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`updated task id=${project.id}`)),
-        catchError(this.handleError<any>('updateProject'))
-      );
-  }
-
-  /**
-   * Send Http POST to server, for new Project
-   */
-  addProject(project: Project): Observable<Project> {
-    return this.http.post<Project>(this.projectsUrl, project, this.httpOptions)
-      .pipe(
-        tap((newProject: Project) => console.log(`added project w/ id=${newProject.id}`)),
-        catchError(this.handleError<Project>('addProject'))
-      );
-
-  }
-
-  /**
-   * Send Http POST to server, for new Task
-   * @PostMapping("/projects/{projectId}/tasks")
-   */
-  addTask(task: Task, projectId: number): Observable<Task> {
-    const url = `${this.projectsUrl}/${projectId}/tasks`;
-    return this.http.post<Task>(url, task, this.httpOptions)
-      .pipe(
-        tap((newProject: Task) => console.log(`added task w/ id=${newProject.id}`)),
-        catchError(this.handleError<Task>('addTask'))
-      );
-  }
-
-  getProjects(): any {
-    return this.http.get(this.projectsUrl);
-  }
-
-  getTasksByProjectId(id: number): Observable<Task[]> {
-    const url = `${this.projectsUrl}/${id}/tasks`;
-    console.log(url);
-    return this.http.get<Task[]>(url)
-      .pipe(
-        tap(_ => console.log(`fetched Task by Project id=${id}`)),
-        catchError(this.handleError<Task>(`getTasksByProjectId id=${id}`))
       );
   }
 
@@ -128,9 +69,9 @@ export class DaoService {
     const url = `${this.inboxUrl}/${id}`;
     return this.http.get<Inbox>(url)
       .pipe(
-      tap(_ => console.log(`fetched inbox id=${id}`)),
-      catchError(this.handleError<Inbox>(`getInbox id=${id}`))
-    );
+        tap(_ => console.log(`fetched inbox id=${id}`)),
+        catchError(this.handleError<Inbox>(`getInbox id=${id}`))
+      );
   }
 
   /**
@@ -142,9 +83,9 @@ export class DaoService {
 
     return this.http.delete<Inbox>(url, this.httpOptions)
       .pipe(
-      tap(_ => console.log(`deleted inbox message id=${id}`)),
-      catchError(this.handleError<Inbox>('deleteInbox'))
-    );
+        tap(_ => console.log(`deleted inbox message id=${id}`)),
+        catchError(this.handleError<Inbox>('deleteInbox'))
+      );
   }
 
   /**
@@ -153,9 +94,9 @@ export class DaoService {
   addInbox(msg: Inbox): Observable<Inbox> {
     return this.http.post<Inbox>(this.inboxUrl, msg, this.httpOptions)
       .pipe(
-      tap((newInbox: Inbox) => console.log(`added inbox w/ id=${newInbox.id}`)),
-      catchError(this.handleError<Inbox>('addInbox'))
-    );
+        tap((newInbox: Inbox) => console.log(`added inbox w/ id=${newInbox.id}`)),
+        catchError(this.handleError<Inbox>('addInbox'))
+      );
 
   }
 
@@ -179,9 +120,9 @@ export class DaoService {
   updateInbox(inbox: Inbox): Observable<any> {
     return this.http.put(this.inboxUrl, inbox, this.httpOptions)
       .pipe(
-      tap(_ => console.log(`updated inbox id=${inbox.id}`)),
-      catchError(this.handleError<any>('updateInbox'))
-    );
+        tap(_ => console.log(`updated inbox id=${inbox.id}`)),
+        catchError(this.handleError<any>('updateInbox'))
+      );
   }
 
   /////// References
@@ -203,9 +144,9 @@ export class DaoService {
   addReference(msg: Reference): Observable<Reference> {
     return this.http.post<Reference>(this.referenceUrl, msg, this.httpOptions)
       .pipe(
-      tap((newReference: Reference) => console.log(`added reference w/ id=${newReference.id}`)),
-      catchError(this.handleError<Reference>('addReference'))
-    );
+        tap((newReference: Reference) => console.log(`added reference w/ id=${newReference.id}`)),
+        catchError(this.handleError<Reference>('addReference'))
+      );
 
   }
 
@@ -218,26 +159,26 @@ export class DaoService {
 
     return this.http.delete<Reference>(url, this.httpOptions)
       .pipe(
-      tap(_ => console.log(`deleted reference message id=${id}`)),
-      catchError(this.handleError<Inbox>('deleteReference'))
-    );
+        tap(_ => console.log(`deleted reference message id=${id}`)),
+        catchError(this.handleError<Inbox>('deleteReference'))
+      );
   }
 
   getReference(id: number): Observable<Reference> {
     const url = `${this.referenceUrl}/${id}`;
     return this.http.get<Reference>(url)
       .pipe(
-      tap(_ => console.log(`fetched reference id=${id}`)),
-      catchError(this.handleError<Inbox>(`getReference id=${id}`))
-    );
+        tap(_ => console.log(`fetched reference id=${id}`)),
+        catchError(this.handleError<Inbox>(`getReference id=${id}`))
+      );
   }
 
   updateReference(reference: Reference): Observable<any> {
     return this.http.put(this.referenceUrl, reference, this.httpOptions)
       .pipe(
-      tap(_ => console.log(`updated reference id=${reference.id}`)),
-      catchError(this.handleError<any>('updateReference'))
-    );
+        tap(_ => console.log(`updated reference id=${reference.id}`)),
+        catchError(this.handleError<any>('updateReference'))
+      );
   }
 
   /////// Daily log
@@ -259,9 +200,9 @@ export class DaoService {
   addDailylog(msg: Dailylog): Observable<Dailylog> {
     return this.http.post<Dailylog>(this.dailylogUrl, msg, this.httpOptions)
       .pipe(
-      tap((newDailylog: Dailylog) => console.log(`added dailylog w/ id=${newDailylog.timestamp}`)),
-      catchError(this.handleError<Inbox>('addDailylog'))
-    );
+        tap((newDailylog: Dailylog) => console.log(`added dailylog w/ id=${newDailylog.timestamp}`)),
+        catchError(this.handleError<Inbox>('addDailylog'))
+      );
 
   }
 
@@ -274,12 +215,4 @@ export class DaoService {
       );
   }
 
-  deleteProject(project: Project): Observable<Project> {
-    const url = `${this.projectsUrl}/${project.id}`;
-    return this.http.delete<Project>(url, this.httpOptions)
-      .pipe(
-        tap(_ => console.log(`deleted project id=${project.id}`)),
-        catchError(this.handleError<Project>('deleteProject'))
-      );
-  }
 }
