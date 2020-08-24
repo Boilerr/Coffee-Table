@@ -122,5 +122,10 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+.small-text {
+  font-size: 5px;
+}
 
-
+.marginLeft{
+  margin-left: 50px;
+}

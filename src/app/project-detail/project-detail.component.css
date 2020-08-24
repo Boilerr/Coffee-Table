@@ -122,5 +122,7 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
-
+.marginLeft{
+  margin-left: 50px;
+}
 

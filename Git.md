@@ -164,6 +164,7 @@ $ git merge --no-ff release-1.2 # Release branch is merged into master
 Merge made by recursive.
 (Summary of changes)
 $ git tag -a 1.2 # The release is now done, and tagged for future reference.
+$ git push origin 1.2 # Push new tag to origin
 ```
 
 To keep the changes made in the release branch, we need to merge those back into develop, though. In Git:
@@ -213,6 +214,7 @@ $ git merge --no-ff hotfix-1.2.1
 Merge made by recursive.
 (Summary of changes)
 $ git tag -a 1.2.1
+$ git push origin 1.2.1 # Push new tag to origin
 ```
 
 Next, include the bugfix in develop, too:

@@ -1,17 +1,15 @@
-<p>TASK WORKS!</p>
-<p>todo edit task</p>
-<mat-divider></mat-divider>
-
+<div class="marginLeft">
 <div *ngIf="task">
   <h1>Task:</h1>
 <h2>{{task.text | uppercase}} Details</h2>
 
 <mat-divider></mat-divider>
-<h3>task id: {{task.id}}</h3>
-<h3>flagged: {{task.flagged}}</h3>
-<h3>active: {{task.active}}</h3>
-<h3>created at: {{task.createdAt}}</h3>
-<h3>updated at: {{task.updatedAt}}</h3>
+  <div class="small-text"><p>task id: {{task.id}}
+    flagged: {{task.flagged}}
+    active: {{task.active}}
+    created at: {{task.createdAt}}
+    updated at: {{task.updatedAt}}</p></div>
+
 
 <mat-divider></mat-divider>
 
@@ -22,10 +20,10 @@
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
-
   <mat-divider></mat-divider>
   <h4>Delete task:</h4>
   <button class="delete" title="delete task"
           (click)="deleteTask(task)">x</button>
 
+</div>
 </div>

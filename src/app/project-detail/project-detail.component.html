@@ -1,15 +1,17 @@
-<h1>Project details</h1>
-<div *ngIf="project">
-  <h4>Project name:</h4>
-  <h2>{{project.title | uppercase}}</h2>
+<div *ngIf="project" class="marginLeft">
+  <h4>Project details</h4>
+  <div class="small-text"><p>Project name:</p></div>
+  <h1>{{project.title | uppercase}}</h1>
   <mat-divider></mat-divider>
-  <h4>Project description:</h4>
+
+  <div class="small-text"><p>Project description:</p></div>
   <h2>{{project.description}}</h2>
 
   <mat-divider></mat-divider>
-  <h4>project id: {{project.id}}</h4>
-  <h4>created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}</h4>
-  <h4>updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}</h4>
+  <div class="small-text"><p>project id: {{project.id}}
+    created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}
+    updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}</p></div>
+
   <mat-divider></mat-divider>
 
   <h2>Edit</h2>
@@ -36,7 +38,6 @@
   <button (click)="goBack()">go back</button>
   <button (click)="saveDescription()">save description</button>
 
-</div>
 
 
 <mat-divider></mat-divider>
@@ -65,3 +66,4 @@
 <h4>Delete project with all tasks inside:</h4>
 <button class="delete" title="delete task"
         (click)="deleteProject(project)">x</button>
+</div>

@@ -29,3 +29,6 @@ button:disabled {
   cursor: auto;
 }
 
+.marginLeft{
+  margin-left: 50px;
+}
