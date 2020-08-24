@@ -1,0 +1,21 @@
+<h1>INBOX</h1>
+
+<div>
+  <label>Add message:
+    <input #inboxMsg />
+  </label>
+  <button (click)="add(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+</div>
+<ul class="inbox">
+  <li *ngFor="let inbox of inboxes">
+      <span class="badge">{{inbox.id}}</span>
+      {{inbox.title}}
+      {{inbox.description}}
+      {{inbox.createdAt}}
+      {{inbox.updatedAt}}
+    <button class="delete" title="delete message"
+            (click)="delete(inbox)">x</button>
+  </li>
+</ul>

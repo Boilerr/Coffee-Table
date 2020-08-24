@@ -1,0 +1,39 @@
+import {Component, OnInit} from '@angular/core';
+import {Inbox} from '../dto/inbox';
+import {InboxDaoService} from '../dao/inbox-dao.service';
+
+@Component({
+  selector: 'app-inbox',
+  templateUrl: './inbox.component.html',
+  styleUrls: ['./inbox.component.css']
+})
+export class InboxComponent implements OnInit {
+  inboxes: Inbox[];
+
+  constructor( private inboxDaoService: InboxDaoService) { }
+
+  ngOnInit(): void {
+    this.getInbox();
+  }
+
+  getInbox(): void {
+    this.inboxDaoService.getInboxes()
+      .subscribe(inbox => this.inboxes = inbox['content']);
+  }
+
+  add(message: string): void {
+    message = message.trim();
+    if (!message) { return; }
+    const inbox = new Inbox(message);
+    this.inboxDaoService.addInbox(inbox)
+      .subscribe(msg => {
+        this.inboxes.push(msg);
+      });
+  }
+
+  delete(msg: Inbox): void {
+    this.inboxes = this.inboxes.filter(h => h !== msg);
+    this.inboxDaoService.deleteInbox(msg).subscribe();
+  }
+
+}

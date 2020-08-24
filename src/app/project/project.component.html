@@ -1,0 +1,23 @@
+<h1>PROJECTS/TASKS</h1>
+<mat-divider></mat-divider>
+<h1>PROJECTS</h1>
+<mat-divider></mat-divider>
+<div>
+  <p>
+  <label>New Project:
+    <input #inboxMsg />
+  </label>
+  <button (click)="addProject(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+  </p>
+</div>
+<mat-divider></mat-divider>
+<ul class="inbox">
+  <li *ngFor="let msg of projects">
+    <a routerLink="/projects/{{msg.id}}/tasks">
+      <span class="badge">{{msg.id}}</span> {{msg.title}}
+    </a>
+
+  </li>
+</ul>

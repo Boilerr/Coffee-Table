@@ -1,0 +1,67 @@
+<h1>Project details</h1>
+<div *ngIf="project">
+  <h4>Project name:</h4>
+  <h2>{{project.title | uppercase}}</h2>
+  <mat-divider></mat-divider>
+  <h4>Project description:</h4>
+  <h2>{{project.description}}</h2>
+
+  <mat-divider></mat-divider>
+  <h4>project id: {{project.id}}</h4>
+  <h4>created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}</h4>
+  <h4>updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}</h4>
+  <mat-divider></mat-divider>
+
+  <h2>Edit</h2>
+  <div>
+    <p>
+    <label>name:
+      <input [(ngModel)]="project.title" placeholder="title"/>
+    </label>
+    </p>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="saveTitle()">save title</button>
+
+  <mat-divider></mat-divider>
+
+  <div>
+    <p>
+    <label>description:
+      <input [(ngModel)]="project.description" placeholder="description"/>
+    </label>
+  </p>
+  </div>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="saveDescription()">save description</button>
+
+</div>
+
+
+<mat-divider></mat-divider>
+
+<h1>TASKS:</h1>
+<div>
+  <label>New Task:
+    <input #inboxMsg />
+  </label>
+  <button (click)="addTask(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+</div>
+<mat-divider></mat-divider>
+
+<ul class="inbox">
+  <li *ngFor="let msg of tasks">
+    <a routerLink="/tasks/{{msg.id}}">
+      <span class="badge">{{msg.id}}</span> {{msg.text}}
+    </a>
+
+  </li>
+</ul>
+
+<mat-divider></mat-divider>
+<h4>Delete project with all tasks inside:</h4>
+<button class="delete" title="delete task"
+        (click)="deleteProject(project)">x</button>

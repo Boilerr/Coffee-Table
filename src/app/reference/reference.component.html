@@ -1,0 +1,23 @@
+<h1>REFERENCE MATERIALS</h1>
+
+<div>
+  <label>Add reference message:
+    <input #inboxMsg />
+  </label>
+  <button (click)="add(inboxMsg.value); inboxMsg.value=''">
+    add
+  </button>
+</div>
+<ul class="inbox">
+  <li *ngFor="let msg of references">
+    <a routerLink="/reference/{{msg.id}}">
+      <span class="badge">{{msg.id}}</span>
+      {{msg.title}}
+      {{msg.description}}
+      {{msg.createdAt}}
+      {{msg.updatedAt}}
+    </a>
+    <button class="delete" title="delete message"
+            (click)="delete(msg)">x</button>
+  </li>
+</ul>
