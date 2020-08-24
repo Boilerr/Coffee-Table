@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DaoService} from '../dao/dao.service';
 import {Reference} from '../dto/reference';
+import {ReferenceDaoService} from '../dao/reference-dao.service';
 
 @Component({
   selector: 'app-reference',
@@ -10,14 +10,14 @@ import {Reference} from '../dto/reference';
 export class ReferenceComponent implements OnInit {
   references: Reference[];
 
-  constructor(private daoService: DaoService) { }
+  constructor(private referenceDaoService: ReferenceDaoService) { }
 
   ngOnInit(): void {
     this.getReference();
   }
 
   getReference(): void {
-    this.daoService.getReferences()
+    this.referenceDaoService.getReferences()
       .subscribe(reference => this.references = reference['content']);
   }
 
@@ -25,7 +25,7 @@ export class ReferenceComponent implements OnInit {
     message = message.trim();
     if (!message) { return; }
     const reference = new Reference(message);
-    this.daoService.addReference(reference)
+    this.referenceDaoService.addReference(reference)
       .subscribe(msg => {
         this.references.push(msg);
       });
@@ -33,6 +33,6 @@ export class ReferenceComponent implements OnInit {
 
   delete(msg: Reference): void {
     this.references = this.references.filter(h => h !== msg);
-    this.daoService.deleteReference(msg).subscribe();
+    this.referenceDaoService.deleteReference(msg).subscribe();
   }
 }

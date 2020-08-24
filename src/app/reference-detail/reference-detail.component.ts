@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
 import {Reference} from '../dto/reference';
+import {ReferenceDaoService} from '../dao/reference-dao.service';
 
 @Component({
   selector: 'app-reference-detail',
@@ -15,7 +15,7 @@ export class ReferenceDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private daoService: DaoService,
+    private referenceDaoService: ReferenceDaoService,
     private location: Location
   ) {
   }
@@ -26,7 +26,7 @@ export class ReferenceDetailComponent implements OnInit {
 
   getReference(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.daoService.getReference(id)
+    this.referenceDaoService.getReference(id)
       .subscribe(msg => this.msg = msg);
   }
 
@@ -35,7 +35,7 @@ export class ReferenceDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.daoService.updateReference(this.msg)
+    this.referenceDaoService.updateReference(this.msg)
       .subscribe(() => this.goBack());
   }
 }
