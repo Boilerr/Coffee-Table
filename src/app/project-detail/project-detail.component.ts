@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Project} from '../dto/project';
 import {ActivatedRoute} from '@angular/router';
-import {DaoService} from '../dao/dao.service';
 import {Location} from '@angular/common';
 import {Task} from '../dto/task';
 import {ProjectDaoService} from '../dao/project-dao.service';

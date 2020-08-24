@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Dailylog} from '../dto/dailylog';
 import {DaoService} from '../dao/dao.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-daily-log',

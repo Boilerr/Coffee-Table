@@ -2,11 +2,8 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {Inbox} from '../dto/inbox';
-import {Task} from '../dto/task';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Reference} from '../dto/reference';
 import {Dailylog} from '../dto/dailylog';
-import {Project} from '../dto/project';
 
 /** This is DAO
  * Place where created internal public api for access to external sources
