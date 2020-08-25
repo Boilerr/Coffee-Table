@@ -17,9 +17,9 @@
   <h1>TASKS:</h1>
   <div>
     <label>New Task:
-      <input #inboxMsg/>
+      <input #inboxMsg size="60"/>
     </label>
-    <button (click)="addTask(inboxMsg.value); inboxMsg.value=''">
+    <button mat-button color="primary" (click)="addTask(inboxMsg.value); inboxMsg.value=''">
       add
     </button>
   </div>
@@ -28,7 +28,8 @@
   <ul class="inbox">
     <li *ngFor="let msg of tasks">
       <a routerLink="/tasks/{{msg.id}}">
-        <span class="badge">{{msg.id}}</span> {{msg.text}}
+        <span class="badge">{{msg.id}}</span>
+        {{msg.text| slice:0:50}}
       </a>
 
     </li>

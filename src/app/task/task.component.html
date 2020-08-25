@@ -1,29 +1,47 @@
-<div class="marginLeft">
-<div *ngIf="task">
-  <h1>Task:</h1>
-<h2>{{task.text | uppercase}} Details</h2>
+<div *ngIf="task" class="marginLeft">
+  <button mat-button color="primary" (click)="goBack()"><-</button>
+  <div >
+    <h1>{{task.text| uppercase | slice:0:50 }}</h1>
+    <mat-form-field>
+      <mat-label>Task description:</mat-label>
+      <textarea [(ngModel)]="task.text" placeholder="description" matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="10"
+                cdkAutosizeMaxRows="25"
+      ></textarea>
+      <button class="save" (click)="save()" mat-button color="primary">Save</button>
+    </mat-form-field>
 
-<mat-divider></mat-divider>
-  <div class="small-text"><p>task id: {{task.id}}
-    flagged: {{task.flagged}}
-    active: {{task.active}}
-    created at: {{task.createdAt}}
-    updated at: {{task.updatedAt}}</p></div>
-
-
-<mat-divider></mat-divider>
-
-  <div>
-    <label>text:
-      <input [(ngModel)]="task.text" placeholder="text"/>
-    </label>
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-  <mat-divider></mat-divider>
-  <h4>Delete task:</h4>
-  <button class="delete" title="delete task"
-          (click)="deleteTask(task)">x</button>
 
-</div>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Misc:
+        </mat-panel-title>
+        <mat-panel-description>
+          This is misc
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+
+      <div class="small-text"><p>
+        <p>task id:{{task.id}}
+        <p>flagged: {{task.flagged}}
+        <p>active: {{task.active}}
+        <p>created at: {{task.createdAt}}
+        <p>updated at: {{task.updatedAt}}
+      </div>
+
+
+      <h4>Delete task:</h4>
+      <button class="delete" title="delete task"
+              (click)="deleteTask(task)">x
+      </button>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

@@ -1,6 +1,4 @@
 <div class="marginLeft">
-<h1>PROJECTS/TASKS</h1>
-<mat-divider></mat-divider>
 <h1>PROJECTS</h1>
 <mat-divider></mat-divider>
 <div>
@@ -8,7 +6,7 @@
   <label>New Project:
     <input #inboxMsg size="60"/>
   </label>
-  <button (click)="addProject(inboxMsg.value); inboxMsg.value=''">
+  <button mat-button color="primary" (click)="addProject(inboxMsg.value); inboxMsg.value=''">
     add
   </button>
   </p>

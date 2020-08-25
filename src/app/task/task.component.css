@@ -32,3 +32,27 @@ button:disabled {
 .marginLeft{
   margin-left: 50px;
 }
+
+.example-full-width {
+  width: 100%;
+}
+button.save {
+  position: relative;
+  left: 640px;
+  top: -32px;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+
+}
+mat-form-field {
+  margin-right: 12px;
+  width: 100%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
