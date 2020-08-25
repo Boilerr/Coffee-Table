@@ -33,7 +33,7 @@ export class TaskComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  saveDescription(): void {
     this.taskDaoService.updateTask(this.task)
       .subscribe(() => this.goBack());
   }

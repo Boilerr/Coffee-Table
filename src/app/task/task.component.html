@@ -1,16 +1,16 @@
 <div *ngIf="task" class="marginLeft">
   <button mat-button color="primary" (click)="goBack()"><-</button>
   <div >
-    <h1>{{task.text| uppercase | slice:0:50 }}</h1>
+    <h1>{{task.title| uppercase | slice:0:50 }}</h1>
     <mat-form-field>
       <mat-label>Task description:</mat-label>
-      <textarea [(ngModel)]="task.text" placeholder="description" matInput
+      <textarea [(ngModel)]="task.description" placeholder="description" matInput
                 cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="10"
                 cdkAutosizeMaxRows="25"
       ></textarea>
-      <button class="save" (click)="save()" mat-button color="primary">Save</button>
+      <button class="save" (click)="saveDescription()" mat-button color="primary">Save</button>
     </mat-form-field>
 
   </div>

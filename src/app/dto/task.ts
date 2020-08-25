@@ -1,12 +1,14 @@
 export class Task {
   id: number;
-  text: string;
+  title: string;
+  description: string;
   active: boolean;
   flagged: boolean;
   createdAt: string;
   updatedAt: string;
 
-  constructor(text: string) {
-    this.text = text;
+  constructor(title: string, description: string) {
+    this.title = title;
+    this.description = description;
   }
 }

@@ -29,7 +29,7 @@
     <li *ngFor="let msg of tasks">
       <a routerLink="/tasks/{{msg.id}}">
         <span class="badge">{{msg.id}}</span>
-        {{msg.text| slice:0:50}}
+        {{msg.title| slice:0:50}}
       </a>
 
     </li>

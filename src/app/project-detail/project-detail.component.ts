@@ -49,7 +49,7 @@ export class ProjectDetailComponent implements OnInit {
       return;
     }
     const id = +this.route.snapshot.paramMap.get('id');
-    const task = new Task(taskText);
+    const task = new Task(taskText, '');
     this.projectDaoService.addTaskByProjectId(task, id)
       .subscribe(msg => {
         this.tasks.push(msg);
