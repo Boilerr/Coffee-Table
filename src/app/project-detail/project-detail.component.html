@@ -1,69 +1,85 @@
 <div *ngIf="project" class="marginLeft">
-  <h4>Project details</h4>
-  <div class="small-text"><p>Project name:</p></div>
+
   <h1>{{project.title | uppercase}}</h1>
   <mat-divider></mat-divider>
 
-  <div class="small-text"><p>Project description:</p></div>
-  <h2>{{project.description}}</h2>
-
-  <mat-divider></mat-divider>
-  <div class="small-text"><p>project id: {{project.id}}
-    created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}
-    updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}</p></div>
-
-  <mat-divider></mat-divider>
-
-  <h2>Edit</h2>
+  <mat-form-field>
+    <mat-label>Project description:</mat-label>
+    <textarea [(ngModel)]="project.description" placeholder="description" matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="10"
+              cdkAutosizeMaxRows="25"
+    ></textarea>
+    <button class="save" (click)="saveDescription()" mat-button color="primary">Save</button>
+  </mat-form-field>
+  <br>
+  <h1>TASKS:</h1>
   <div>
-    <p>
-    <label>name:
-      <input [(ngModel)]="project.title" placeholder="title"/>
+    <label>New Task:
+      <input #inboxMsg/>
     </label>
-    </p>
+    <button (click)="addTask(inboxMsg.value); inboxMsg.value=''">
+      add
+    </button>
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="saveTitle()">save title</button>
-
   <mat-divider></mat-divider>
 
-  <div>
-    <p>
-    <label>description:
-      <input [(ngModel)]="project.description" placeholder="description"/>
-    </label>
-  </p>
-  </div>
+  <ul class="inbox">
+    <li *ngFor="let msg of tasks">
+      <a routerLink="/tasks/{{msg.id}}">
+        <span class="badge">{{msg.id}}</span> {{msg.text}}
+      </a>
 
-  <button (click)="goBack()">go back</button>
-  <button (click)="saveDescription()">save description</button>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Misc:
+        </mat-panel-title>
+        <mat-panel-description>
+          This is misc
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-<mat-divider></mat-divider>
+      <div class="small-text">
+        <p>project id: {{project.id}}
+        <p>created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}
+        <p>updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}
+      </div>
 
-<h1>TASKS:</h1>
-<div>
-  <label>New Task:
-    <input #inboxMsg />
-  </label>
-  <button (click)="addTask(inboxMsg.value); inboxMsg.value=''">
-    add
-  </button>
+      <mat-divider></mat-divider>
+
+      <h2>Edit</h2>
+      <div>
+        <p>
+          <label>name:
+            <input [(ngModel)]="project.title" placeholder="title"/>
+          </label>
+        </p>
+      </div>
+      <button (click)="goBack()">go back</button>
+      <button (click)="saveTitle()">save title</button>
+
+      <mat-divider></mat-divider>
+      <h4>Delete project with all tasks inside:</h4>
+      <button class="delete" title="delete task"
+              (click)="deleteProject(project)">x
+      </button>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
 </div>
-<mat-divider></mat-divider>
 
-<ul class="inbox">
-  <li *ngFor="let msg of tasks">
-    <a routerLink="/tasks/{{msg.id}}">
-      <span class="badge">{{msg.id}}</span> {{msg.text}}
-    </a>
 
-  </li>
-</ul>
 
-<mat-divider></mat-divider>
-<h4>Delete project with all tasks inside:</h4>
-<button class="delete" title="delete task"
-        (click)="deleteProject(project)">x</button>
-</div>
+
