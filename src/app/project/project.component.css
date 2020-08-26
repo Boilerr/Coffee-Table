@@ -129,3 +129,13 @@ button.delete {
 .marginLeft{
   margin-left: 50px;
 }
+
+input {
+  border: 2px solid currentcolor;
+}
+input:invalid {
+  border: 2px dashed red;
+}
+input:invalid:focus {
+  background-image: linear-gradient(red, darkred);
+}

@@ -4,7 +4,7 @@
 <div>
   <p>
   <label>New Project:
-    <input #inboxMsg size="60"/>
+    <input #inboxMsg size="60" minlength="3" maxlength="100"/>
   </label>
   <button mat-button color="primary" (click)="addProject(inboxMsg.value); inboxMsg.value=''">
     add

@@ -19,6 +19,9 @@ ngOnInit(): void {
 }
 
   addProject(projectTitle: string): void {
+    if (projectTitle.length < 3 || projectTitle.length > 100){
+      return;
+    }
     projectTitle = projectTitle.trim();
     if (!projectTitle) {
       return;

@@ -153,3 +153,12 @@ button.save {
   color: #2b3543;
   background: #27303b;
 }
+input {
+  border: 2px solid currentcolor;
+}
+input:invalid {
+  border: 2px dashed red;
+}
+input:invalid:focus {
+  background-image: linear-gradient(red, darkred);
+}

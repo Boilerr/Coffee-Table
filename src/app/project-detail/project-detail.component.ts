@@ -44,6 +44,9 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   addTask(taskText: string): void {
+    if (taskText.length < 3 || taskText.length > 100){
+      return;
+    }
     taskText = taskText.trim();
     if (!taskText) {
       return;
