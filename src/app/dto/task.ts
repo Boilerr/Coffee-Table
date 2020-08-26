@@ -2,8 +2,9 @@ export class Task {
   id: number;
   title: string;
   description: string;
-  active: boolean;
+  tags: string[];
   flagged: boolean;
+  active: boolean;
   createdAt: string;
   updatedAt: string;
 

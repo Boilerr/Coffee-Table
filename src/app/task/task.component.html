@@ -2,6 +2,7 @@
   <button mat-button color="primary" (click)="goBack()"><-</button>
   <div >
     <h1>{{task.title| uppercase | slice:0:50 }}</h1>
+
     <mat-form-field>
       <mat-label>Task description:</mat-label>
       <textarea [(ngModel)]="task.description" placeholder="description" matInput
@@ -10,11 +11,43 @@
                 cdkAutosizeMinRows="10"
                 cdkAutosizeMaxRows="25"
       ></textarea>
-      <button class="save" (click)="saveDescription()" mat-button color="primary">Save</button>
     </mat-form-field>
+
+
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Tags">
+
+        <mat-chip *ngFor="let fruit of task.tags" [selectable]="selectable"
+                  [removable]="removable" (removed)="removeTag(fruit)">
+          {{fruit}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+
+        <input placeholder="Tags:"
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="addT($event)">
+      </mat-chip-list>
+    </mat-form-field>
+    <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
+
 
   </div>
 
+
+  <mat-divider></mat-divider>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <mat-divider></mat-divider>
+<br>
+  <br>
+  <br>
+  <br>
   <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
@@ -29,13 +62,13 @@
 
       <div class="small-text"><p>
         <p>task id:{{task.id}}
+        <p>tags: {{task.tags}}
         <p>flagged: {{task.flagged}}
         <p>active: {{task.active}}
         <p>created at: {{task.createdAt}}
         <p>updated at: {{task.updatedAt}}
       </div>
-
-
+<!--todo add edit task title-->
       <h4>Delete task:</h4>
       <button class="delete" title="delete task"
               (click)="deleteTask(task)">x

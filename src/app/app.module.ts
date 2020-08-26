@@ -41,6 +41,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { TaskComponent } from './task/task.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {MatSelectModule} from '@angular/material/select';
         RouterModule,
         MatTableModule,
         MatDividerModule,
-        MatSelectModule
+        MatSelectModule,
+        MatChipsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
