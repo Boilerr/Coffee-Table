@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Task} from '../dto/task';
 import {TaskDaoService} from '../dao/task-dao.service';
+import {Tag} from '../dto/tag';
 
 @Component({
   selector: 'app-tags',
@@ -9,6 +10,17 @@ import {TaskDaoService} from '../dao/task-dao.service';
 })
 export class TagsComponent implements OnInit {
   tasksByTag: Task[];
+  pTags: Tag[] = [
+    {name: 'Work'},
+    {name: 'Recovery'},
+    {name: '5min'},
+    {name: 'Cooking'},
+    {name: 'Home'},
+    {name: 'Apartment Improvement'},
+    {name: 'Book'},
+    {name: 'Interesting'},
+    {name: 'Programming'}
+  ];
 
   constructor(private taskDaoService: TaskDaoService) {
   }
@@ -17,7 +29,7 @@ export class TagsComponent implements OnInit {
   }
 
   showTag(value: string): void {
-    if (value.length < 2 || value.length > 50){
+    if (value.length < 2 || value.length > 50) {
       return;
     }
     value = value.trim();
@@ -25,6 +37,16 @@ export class TagsComponent implements OnInit {
       return;
     }
     this.taskDaoService.getTasksByTag(value).subscribe(data => this.tasksByTag = data);
+  }
 
+  showTasksByTag(value: string): void {
+    if (value.length < 2 || value.length > 50) {
+      return;
+    }
+    value = value.trim();
+    if (!value) {
+      return;
+    }
+    this.taskDaoService.getTasksByTag(value).subscribe(data => this.tasksByTag = data);
   }
 }

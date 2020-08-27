@@ -129,6 +129,9 @@ button.delete {
 .marginLeft{
   margin-left: 50px;
 }
+.marginCenter{
+  margin-block: auto;
+}
 
 input {
   border: 2px solid currentcolor;
@@ -138,4 +141,8 @@ input:invalid {
 }
 input:invalid:focus {
   background-image: linear-gradient(red, darkred);
+}
+
+mat-chip-list{
+
 }
