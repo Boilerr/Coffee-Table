@@ -42,6 +42,7 @@ import { TaskComponent } from './task/task.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -61,37 +62,38 @@ import {MatChipsModule} from '@angular/material/chips';
     ProjectDetailComponent,
     TaskComponent
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        MatToolbarModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatCheckboxModule,
-        MatFormFieldModule,
-        AppRoutingModule,
-        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-        // and returns simulated server responses.
-        // Remove it when a real server is ready to receive requests.
-        /*HttpClientInMemoryWebApiModule.forRoot(
-          InMemoryDataService, {dataEncapsulation: false}
-        ),*/
-        FormsModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatTreeModule,
-        DragDropModule,
-        MatExpansionModule,
-        MatDatepickerModule,
-        MatProgressBarModule,
-        RouterModule,
-        MatTableModule,
-        MatDividerModule,
-        MatSelectModule,
-        MatChipsModule
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    AppRoutingModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    /*HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    ),*/
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTreeModule,
+    DragDropModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatProgressBarModule,
+    RouterModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatAutocompleteModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

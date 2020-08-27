@@ -1,10 +1,10 @@
 <div *ngIf="task" class="marginLeft">
   <button mat-button color="primary" (click)="goBack()"><-</button>
-  <div >
+  <div>
     <h1>{{task.title| uppercase | slice:0:50 }}</h1>
 
     <mat-form-field>
-      <mat-label>Task description:</mat-label>
+      <mat-label>Task description...</mat-label>
       <textarea [(ngModel)]="task.description" placeholder="description" matInput
                 cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
@@ -13,38 +13,37 @@
       ></textarea>
     </mat-form-field>
 
-
-    <mat-form-field class="example-chip-list">
-      <mat-chip-list #chipList aria-label="Tags">
-
-        <mat-chip *ngFor="let fruit of task.tags" [selectable]="selectable"
-                  [removable]="removable" (removed)="removeTag(fruit)">
-          {{fruit}}
-          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-        </mat-chip>
-
-        <input placeholder="Tags:"
-               [matChipInputFor]="chipList"
-               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-               [matChipInputAddOnBlur]="addOnBlur"
-               (matChipInputTokenEnd)="addT($event)">
-      </mat-chip-list>
-    </mat-form-field>
-    <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
-
-
   </div>
 
+  <mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList1 aria-label="Tags">
+      <mat-chip *ngFor="let fruit of task.tags"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="removeTag(fruit)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Tags..."
+             #fruitInput
+             [formControl]="fruitCtrl"
+             [matAutocomplete]="auto"
+             [matChipInputFor]="chipList1"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             (matChipInputTokenEnd)="addT($event)">
+    </mat-chip-list>
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of pTags " [value]="pTags">
+        {{fruit.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
+
 
   <mat-divider></mat-divider>
-
   <br>
-  <br>
-  <br>
-  <br>
-
-  <mat-divider></mat-divider>
-<br>
   <br>
   <br>
   <br>
@@ -68,7 +67,7 @@
         <p>created at: {{task.createdAt}}
         <p>updated at: {{task.updatedAt}}
       </div>
-<!--todo add edit task title-->
+      <!--todo add edit task title-->
       <h4>Delete task:</h4>
       <button class="delete" title="delete task"
               (click)="deleteTask(task)">x
