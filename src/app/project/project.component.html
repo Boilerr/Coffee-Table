@@ -15,7 +15,8 @@
 <ul class="inbox">
   <li *ngFor="let msg of projects">
     <a routerLink="/projects/{{msg.id}}/tasks">
-      <span class="badge">{{msg.id}}</span> {{msg.title}}
+      <span class="badge">{{msg.id}}</span>
+      {{msg.title| slice:0:50}}
     </a>
 
   </li>
