@@ -64,10 +64,23 @@
         <p>tags: {{task.tags}}
         <p>flagged: {{task.flagged}}
         <p>active: {{task.active}}
-        <p>created at: {{task.createdAt}}
-        <p>updated at: {{task.updatedAt}}
+        <p>created at: {{task.createdAt | date: 'y-M-d, HH:mm:ss'}}
+        <p>created at: {{task.updatedAt | date: 'y-M-d, HH:mm:ss'}}
       </div>
-      <!--todo add edit task title-->
+
+      <mat-divider></mat-divider>
+
+      <h2>Edit Task title</h2>
+      <div>
+        <p>
+          <label>task title:
+            <input [(ngModel)]="task.title" placeholder="title"/>
+          </label>
+        </p>
+      </div>
+      <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
+      <mat-divider></mat-divider>
+
       <h4>Delete task:</h4>
       <button class="delete" title="delete task"
               (click)="deleteTask(task)">x

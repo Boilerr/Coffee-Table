@@ -54,8 +54,8 @@
 
       <div class="small-text">
         <p>project id: {{project.id}}
-        <p>created at: {{project.createdAt | date: 'y-M-d, h:mm:ss'}}
-        <p>updated at: {{project.updatedAt | date: 'y-M-d, h:mm:ss' }}
+        <p>created at: {{project.createdAt | date: 'y-M-d, HH:mm:ss'}}
+        <p>updated at: {{project.updatedAt | date: 'y-M-d, HH:mm:ss' }}
       </div>
 
       <mat-divider></mat-divider>
@@ -68,7 +68,7 @@
           </label>
         </p>
       </div>
-      <button (click)="goBack()">go back</button>
+
       <button (click)="saveTitle()">save title</button>
 
       <mat-divider></mat-divider>
