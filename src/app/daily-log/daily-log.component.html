@@ -39,15 +39,18 @@
 </form>
 
 
-<ul class="inbox">
+<!-- todo
+NgFor only supports binding to Iterables such as Arrays
+-->
+<!--<ul class="inbox">
   <li *ngFor="let msg of dailylog">
-    <a>
+
       <span class="badge">{{msg.id}}</span>
       <span class="badge">{{msg.timestamp | date: 'medium'}}</span>
       <span class="badge">{{msg.from}}</span>
       <span class="badge">{{msg.category}}</span>{{msg.message}}
-    </a>
+
 
   </li>
-</ul>
+</ul>-->
 
