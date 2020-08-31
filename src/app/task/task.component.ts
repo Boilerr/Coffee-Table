@@ -26,6 +26,7 @@ export class TaskComponent implements OnInit {
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   pTags: Tag[] = [
+    {name: 'Interview'},
     {name: 'Work'},
     {name: 'Recovery'},
     {name: '5min'},

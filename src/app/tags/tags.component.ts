@@ -11,6 +11,7 @@ import {Tag} from '../dto/tag';
 export class TagsComponent implements OnInit {
   tasksByTag: Task[];
   pTags: Tag[] = [
+    {name: 'Interview'},
     {name: 'Work'},
     {name: 'Recovery'},
     {name: '5min'},
