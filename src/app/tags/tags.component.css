@@ -146,3 +146,18 @@ input:invalid:focus {
 mat-chip-list{
 
 }
+
+.left-panel {
+  /*background-color: #ff9e2c;*/
+  position: absolute;
+  left: 0px;
+  width: 25%;
+}
+
+.right-panel {
+  /*background-color: #b6701e;*/
+  position: absolute;
+  right: 0px;
+  width: 75%;
+}
+
