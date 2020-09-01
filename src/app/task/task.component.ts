@@ -27,6 +27,7 @@ export class TaskComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   pTags: Tag[] = [
     {name: 'Interview'},
+    {name: 'Other'},
     {name: 'Work'},
     {name: 'Recovery'},
     {name: '5min'},
@@ -35,7 +36,8 @@ export class TaskComponent implements OnInit {
     {name: 'Apartment Improvement'},
     {name: 'Book'},
     {name: 'Interesting'},
-    {name: 'Programming'}
+    {name: 'Programming'},
+    {name: 'Archive'}
   ];
 
   fruitCtrl = new FormControl();

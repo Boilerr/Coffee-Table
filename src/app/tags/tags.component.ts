@@ -12,6 +12,7 @@ export class TagsComponent implements OnInit {
   tasksByTag: Task[];
   pTags: Tag[] = [
     {name: 'Interview'},
+    {name: 'Other'},
     {name: 'Work'},
     {name: 'Recovery'},
     {name: '5min'},
@@ -20,7 +21,8 @@ export class TagsComponent implements OnInit {
     {name: 'Apartment Improvement'},
     {name: 'Book'},
     {name: 'Interesting'},
-    {name: 'Programming'}
+    {name: 'Programming'},
+    {name: 'Archive'}
   ];
 
   constructor(private taskDaoService: TaskDaoService) {
