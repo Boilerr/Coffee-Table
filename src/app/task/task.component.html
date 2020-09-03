@@ -1,5 +1,7 @@
 <div *ngIf="task" class="marginLeft">
-  <button mat-button color="primary" (click)="goBack()"><-</button>
+  <button mat-button color="primary" (click)="goBack()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
+  </button>
   <div>
     <h1>{{task.title| uppercase | slice:0:50 }}</h1>
 
@@ -39,7 +41,11 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
+  <button class="save"
+          (click)="updateTask()"
+          mat-button color="primary">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+  </button>
 
 
   <mat-divider></mat-divider>

@@ -1,5 +1,7 @@
 <div *ngIf="project" class="marginLeft">
-  <button mat-button color="primary" (click)="goBack()"><-</button>
+  <button mat-button color="primary" (click)="goBack()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
+  </button>
   <h1>{{project.title | uppercase}}</h1>
   <mat-divider></mat-divider>
 
@@ -11,7 +13,10 @@
               cdkAutosizeMinRows="10"
               cdkAutosizeMaxRows="25"
     ></textarea>
-    <button class="save" (click)="saveDescription()" mat-button color="primary">Save</button>
+    <button class="save" (click)="saveDescription()" mat-button color="primary">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+
+    </button>
   </mat-form-field>
   <br>
   <h1>TASKS:</h1>
@@ -69,11 +74,14 @@
         </p>
       </div>
 
-      <button (click)="saveTitle()">save title</button>
+      <button (click)="saveTitle()">
+save
+        </button>
 
       <mat-divider></mat-divider>
       <h4>Delete project with all tasks inside:</h4>
-      <button class="delete" title="delete task"
+      <button class="delete"
+              title="delete task"
               (click)="deleteProject(project)">x
       </button>
 
