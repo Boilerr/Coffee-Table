@@ -54,7 +54,8 @@ export class InboxDaoService {
   /** Update */
 
   updateInbox(inbox: Inbox): Observable<any> {
-    return this.http.put(this.inboxUrl, inbox, this.httpOptions)
+    const url = `${this.inboxUrl}/${inbox.id}`;
+    return this.http.put(url, inbox, this.httpOptions)
       .pipe(
         tap(_ => console.log(`updated inbox id=${inbox.id}`)),
         catchError(this.handleError<any>('updateInbox'))

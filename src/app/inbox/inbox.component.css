@@ -1,3 +1,12 @@
+
+.mat-inbox{
+  /*width: 550px;*/
+  min-width: 150px;
+  max-width: 500px;
+  margin-right: 12px;
+  /*width: 100%;*/
+}
+
 /* private CSS styles */
 .inbox {
   margin: 0 0 2em 0;
@@ -71,4 +80,21 @@ button.delete {
   top: -32px;
   background-color: gray !important;
   color: white;
+}
+
+.inbox2 {
+  border: #607D8B;
+  border-left: #405061;
+}
+
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 70%;
 }

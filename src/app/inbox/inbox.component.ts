@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Inbox} from '../dto/inbox';
 import {InboxDaoService} from '../dao/inbox-dao.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-inbox',
@@ -10,7 +11,7 @@ import {InboxDaoService} from '../dao/inbox-dao.service';
 export class InboxComponent implements OnInit {
   inboxes: Inbox[];
 
-  constructor( private inboxDaoService: InboxDaoService) { }
+  constructor( private inboxDaoService: InboxDaoService, private location: Location) { }
 
   ngOnInit(): void {
     this.getInbox();
@@ -36,4 +37,25 @@ export class InboxComponent implements OnInit {
     this.inboxDaoService.deleteInbox(msg).subscribe();
   }
 
+  /*updateInbox(id: number, description: string) {
+    this.inboxDaoService.updateInbox(this.msg)
+      .subscribe(() => this.goBack());
+
+  }*/
+  save(msg: Inbox): void {
+    this.inboxDaoService.updateInbox(msg)
+      .subscribe();
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  addInbox(): void {
+    const inbox = new Inbox('New inbox');
+    this.inboxDaoService.addInbox(inbox)
+      .subscribe(msg => {
+        this.inboxes.push(msg);
+      });
+  }
 }
