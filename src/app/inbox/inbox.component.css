@@ -76,10 +76,15 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 340px;
+  left: 540px;
   top: -32px;
-  background-color: gray !important;
-  color: white;
+
+}
+
+button.save {
+  position: relative;
+  left: 40px;
+  top: -32px;
 }
 
 .inbox2 {

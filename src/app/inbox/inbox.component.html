@@ -1,10 +1,11 @@
 <h1>INBOX</h1>
 
 
-<mat-divider></mat-divider>
 
 <div *ngIf="inboxes">
-  <button class="delete" title="Add new inbox"
+  <mat-divider></mat-divider>
+
+  <button class="save" title="Add new inbox"
           (click)="addInbox()" mat-button color="primary">
     <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
 
@@ -13,27 +14,33 @@
   <ul>
     <li *ngFor="let inbox of inboxes">
       <mat-form-field class="example-full-width">
-        <mat-label> {{inbox.title}} </mat-label>
+        <mat-label> id: {{inbox.id}}, </mat-label>
+
+        <mat-label> title: {{inbox.title}} </mat-label>
         <textarea [(ngModel)]="inbox.description" placeholder="{{inbox.description}}" matInput
                   cdkTextareaAutosize
                   #autosize="cdkTextareaAutosize"
                   cdkAutosizeMinRows="10"
                   cdkAutosizeMaxRows="25"
         ></textarea>
+        <mat-divider></mat-divider>
+
+        <button class="save" title="save message"
+                (click)="save(inbox)" mat-button color="primary">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
+
+        </button>
+
+        <button class="delete" title="delete message"
+                (click)="delete(inbox)" mat-button color="primary">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+
+        </button>
+
       </mat-form-field>
 
 
-      <button class="delete" title="delete message"
-              (click)="save(inbox)" mat-button color="primary">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
 
-      </button>
-
-      <button class="delete" title="delete message"
-              (click)="delete(inbox)" mat-button color="primary">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
-
-      </button>
     </li>
   </ul>
 
