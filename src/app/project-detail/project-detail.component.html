@@ -3,6 +3,7 @@
     <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
   </button>
   <h1>{{project.title | uppercase}}</h1>
+
   <mat-divider></mat-divider>
 
   <mat-form-field>
@@ -15,20 +16,21 @@
     ></textarea>
     <button class="save" (click)="saveDescription()" mat-button color="primary">
       <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
-
     </button>
   </mat-form-field>
+
   <br>
   <h1>TASKS:</h1>
   <div>
     <label>New Task:
-      <input #inboxMsg size="60" minlength="3" maxlength="100"/>
+      <input #newTask size="60" minlength="3" maxlength="100"/>
     </label>
 
-    <button mat-button color="primary" (click)="addTask(inboxMsg.value); inboxMsg.value=''">
+    <button mat-button color="primary" (click)="addTask(newTask.value); newTask.value=''">
       add
     </button>
   </div>
+
   <mat-divider></mat-divider>
 
   <ul class="inbox">
@@ -40,11 +42,11 @@
 
     </li>
   </ul>
-  <br>
-  <br>
-  <br>
-  <br>
 
+  <br>
+  <br>
+  <br>
+  <br>
 
   <mat-accordion>
     <mat-expansion-panel hideToggle>
@@ -75,10 +77,11 @@
       </div>
 
       <button (click)="saveTitle()">
-save
-        </button>
+        save
+      </button>
 
       <mat-divider></mat-divider>
+
       <h4>Delete project with all tasks inside:</h4>
       <button class="delete"
               title="delete task"

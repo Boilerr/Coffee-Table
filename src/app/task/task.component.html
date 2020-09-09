@@ -1,7 +1,9 @@
 <div *ngIf="task" class="marginLeft">
+
   <button mat-button color="primary" (click)="goBack()">
     <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_back</mat-icon>
   </button>
+
   <div>
     <h1>{{task.title| uppercase | slice:0:50 }}</h1>
 
@@ -41,18 +43,18 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button class="save"
-          (click)="updateTask()"
-          mat-button color="primary">
+
+  <button class="save" (click)="updateTask()" mat-button color="primary">
     <mat-icon aria-hidden="false" aria-label="Example home icon">save</mat-icon>
   </button>
 
-
   <mat-divider></mat-divider>
+
   <br>
   <br>
   <br>
   <br>
+
   <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
@@ -63,7 +65,6 @@
           This is misc
         </mat-panel-description>
       </mat-expansion-panel-header>
-
 
       <div class="small-text"><p>
         <p>task id:{{task.id}}
@@ -85,14 +86,15 @@
         </p>
       </div>
       <button class="save" (click)="updateTask()" mat-button color="primary">update task</button>
+
       <mat-divider></mat-divider>
 
       <h4>Delete task:</h4>
+
       <button class="delete" title="delete task"
               (click)="deleteTask(task)">x
       </button>
-
-
+      
     </mat-expansion-panel>
   </mat-accordion>
 </div>

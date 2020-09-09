@@ -2,28 +2,30 @@
 
   <p>
     <mat-divider></mat-divider>
+
     <label>Show tasks by tag:
-      <input #inboxMsg size="50" minlength="2" maxlength="50"/>
+      <input #tagInput size="50" minlength="2" maxlength="50"/>
     </label>
-    <button mat-button color="primary" (click)="showTag(inboxMsg.value); inboxMsg.value=''">
+    <button mat-button color="primary" (click)="showTag(tagInput.value); tagInput.value=''">
       Show!
     </button>
   </p>
 
   <mat-divider></mat-divider>
+
   <div class="left-panel">
-    <mat-chip-list *ngFor="let msg of pTags" aria-label="Fish selection">
-      <mat-chip (click)="showTasksByTag(msg.name)">{{msg.name}} </mat-chip>
+    <mat-chip-list *ngFor="let pTag of pTags" aria-label="Fish selection">
+      <mat-chip (click)="showTasksByTag(pTag.name)">{{pTag.name}} </mat-chip>
     </mat-chip-list>
   </div>
 
 
   <div class="right-panel">
     <ul class="inbox">
-      <li *ngFor="let msg of tasksByTag">
-        <a routerLink="/tasks/{{msg.id}}">
-          <span class="badge">{{msg.id}}</span>
-          {{msg.title| slice:0:50}}
+      <li *ngFor="let task of tasksByTag">
+        <a routerLink="/tasks/{{task.id}}">
+          <span class="badge">{{task.id}}</span>
+          {{task.title| slice:0:50}}
         </a>
       </li>
     </ul>
